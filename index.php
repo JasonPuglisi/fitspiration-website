@@ -52,7 +52,7 @@
 			<h4>Once you're logged in, you'll be able to choose one of the plans below for full access to FITspiration!</h4>
 			<div class='row text-center'>
 				<div class='col-md-3'>
-					<h3 class='account-free'>Basic<small> Free</small></h3>
+					<h3 class='account-basic'>Basic<small> Free</small></h3>
 					<h4>Access to:</h4>
 					<p>Recipe previews</p>
 					<p>Exercise previews</p>
