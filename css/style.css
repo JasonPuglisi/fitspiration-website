@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300|Open+Sans:400,300);
+
+body {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Trebuchet MS', 'Verdana', Arial, sans-serif;
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Raleway', 'Open Sans', 'Helvetica Neue', Helvetica, 'Trebuchet MS', 'Verdana', Arial, sans-serif;
+	font-weight: 300;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.jumbotron {
+	padding: 50px 50px;
+	margin: 0px;
+	background-image: url('/img/bg.php');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	background-size: cover;
+}
+
+.img-logo {
+	opacity: 0.8;
+}
+
+.account-basic {
+	color: #7ed321;
+}
+
+.account-bronze {
+	color: #f59923;
+}
+
+.account-silver {
+	color: #d4d4d4;
+}
+
+.account-gold {
+	color: #f5d423;
+}
