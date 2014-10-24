@@ -72,6 +72,10 @@
 
 			<div class='alert alert-danger' role='alert'>Your password is too short. Please use at least eight characters.</div>
 
+			<?php } else if (isset($email_valid) && !$email_valid) { ?>
+
+			<div class='alert alert-danger' role='alert'>Your email is invalid. Please enter a valid email address.</div>
+
 			<?php } ?>
 
 			<form class='form-inline' method='post' role='form'>
