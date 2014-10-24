@@ -21,7 +21,9 @@
 	<div class='container'>
 		<div class='row text-center'>
 			<h1><strong>FIT</strong>spiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
-			<hr>
+		</div>
+		<hr>
+		<div class='row text-center'>
 			<h2>On your mark, get set, go! <i class='fa fa-flag-checkered'></i></h2>
 			<br>
 
@@ -94,8 +96,8 @@
 				<h4>Accessory:</h4>
 				<p>Smart watch with fitness tracking capabilities</p>
 			</div>
-			<hr>
 		</div>
+		<hr>
 		<div class='row text-center'>
 			<div class='col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
@@ -112,8 +114,8 @@
 				<h3>Stay connected.</h3>
 				<p>Discover new recipes every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Fitness Tracker to get insights into your health and more.</p>
 			</div>
-			<hr>
 		</div>
+		<hr>
 	</div>
 
 	<a id='staff'></a>

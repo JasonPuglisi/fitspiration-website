@@ -1,7 +1,7 @@
 	<div class='container'>
+		<hr>
 		<div class='footer'>
 			<div class='row text-center'>
-				<hr>
 				<div class='col-md-4'>
 					<p><i class='fa fa-copyright'></i> FITspiration 2014</p>
 				</div>
