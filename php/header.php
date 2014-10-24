@@ -73,6 +73,7 @@
 	<link rel='apple-touch-icon' sizes='152x152' href='https://www.findanewmax.com/img/ico/152.png'>
 	<link rel='apple-touch-icon' sizes='180x180' href='https://www.findanewmax.com/img/ico/180.png'>
 	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<meta name='apple-mobile-web-app-status-bar-style' content='black'>
 	<meta name='application-name' content='FITspiration'>
 	<meta name='msapplication-TileImage' content='https://www.findanewmax.com/img/ico/144.png'>
 	<meta name='msapplication-TileColor' content='#f2f2f2'>
