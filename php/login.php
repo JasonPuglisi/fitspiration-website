@@ -50,6 +50,19 @@
 				setcookie('session', $insert_session_id, 0, '/');
 				$account_created = true;
 
+				require $_SERVER['DOCUMENT_ROOT'] . '/sendgrid/sendgrid-php.php';
+
+				$sendgrid = new SendGrid($SENDGRID_USERNAME, $SENDGRID_PASSWORD);
+
+				$email = new SendGrid\Email();
+				$email->
+					addTo($insert_email)->
+					setFrom('contact@findanewmax.com')->
+					setFromName('FITspiration')->
+					setSubject('Welcome to FITspiration!')->
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>Welcome to FITspiration!</h1><p>We're sending you this email to let you know that your account is all set up and ready to go! If you ever lose your way, visit <a href=\"https://www.findanewmax.com/\">findanewmax.com</a> and log in with your email ($insert_email) and the password you chose when you signed up. Thank you for being a part of the FITspiration community!</p><p><small>P.S. This email is just for confirmation, and we'll never send you spam. If you have any questions or concerns, please reply to this email or send a new message to <a href=\"mailto:contact@findanewmax.com\">contact@findanewmax.com</a>.</small></p></div>");
+				$sendgrid->send($email);
+
 				header('Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']));
 			}
 		}
