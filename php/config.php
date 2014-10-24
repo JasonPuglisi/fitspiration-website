@@ -9,4 +9,7 @@
 	// SendGrid SMTP credentials
 	$SENDGRID_USERNAME = 'USERNAME';
 	$SENDGRID_PASSWORD = 'PASSWORD';
+
+	// Other stuff
+	$REDDIT_SUBREDDIT = 'SUBREDDIT';
 ?>
