@@ -52,7 +52,7 @@
 		</div>
 
 		<?php
-			if (array_search('Diamond', $account_levels_inherited) !== false) {
+			if (!isset($_COOKIE['demo']) && array_search('Diamond', $account_levels_inherited) !== false) {
 				$reddit_link_source = $REDDIT_SUBREDDIT;
 		?>
 
