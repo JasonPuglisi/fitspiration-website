@@ -54,45 +54,45 @@
 			</form>
 			<br>
 			<h4>Once you're logged in, you'll be able to choose one of the plans below for full access to FITspiration!</h4>
-			<div class='row text-center'>
-				<div class='col-md-3'>
-					<h3 class='account-basic'>Basic<small> Free</small></h3>
-					<h4>Access to:</h4>
-					<p>Recipe previews</p>
-					<p>Exercise previews</p>
-					<p>Workout and yoga video previews</p>
-				</div>
-				<div class='col-md-3'>
-					<h3 class='account-bronze'>Bronze<small> TBD</small></h3>
-					<h4>Access to:</h4>
-					<p>Fitness tracking</p>
-					<p>Quick meal recipes</p>
-					<p>Exercise information</p>
-					<p>Health articles</p>
-					<h4>Accessory:</h4>
-					<p>Wristband with pedometer and calorie tracker</p>
-				</div>
-				<div class='col-md-3'>
-					<h3 class='account-silver'>Silver<small> TBD</small></h3>
-					<h4>Access to:</h4>
-					<p>Breakfast, lunch, and dinner recipes</p>
-					<p>Dietary recommendations</p>
-					<p>Exercise plans and challenges</p>
-					<p>Discussion forum</p>
-					<h4>Accessory:</h4>
-					<p>Wristband with pedometer and calorie tracker</p>
-				</div>
-				<div class='col-md-3'>
-					<h3 class='account-gold'>Gold<small> TBD</small></h3>
-					<h4>Access to:</h4>
-					<p>Snack and dessert recipes</p>
-					<p>Workout and yoga videos</p>
-					<p>Custom dietary recommendations</p>
-					<p>Custom exercise plans and challenges</p>
-					<p>Custom grocery lists and restaurant recommendations</p>
-					<h4>Accessory:</h4>
-					<p>Smart watch with fitness tracking capabilities</p>
-				</div>
+		</div>
+		<div class='row text-center'>
+			<div class='col-md-3'>
+				<h3 class='account-basic'>Basic<small> Free</small></h3>
+				<h4>Access to:</h4>
+				<p>Recipe previews</p>
+				<p>Exercise previews</p>
+				<p>Workout and yoga video previews</p>
+			</div>
+			<div class='col-md-3'>
+				<h3 class='account-bronze'>Bronze<small> TBD</small></h3>
+				<h4>Access to:</h4>
+				<p>Fitness tracking</p>
+				<p>Quick meal recipes</p>
+				<p>Exercise information</p>
+				<p>Health articles</p>
+				<h4>Accessory:</h4>
+				<p>Wristband with pedometer and calorie tracker</p>
+			</div>
+			<div class='col-md-3'>
+				<h3 class='account-silver'>Silver<small> TBD</small></h3>
+				<h4>Access to:</h4>
+				<p>Breakfast, lunch, and dinner recipes</p>
+				<p>Dietary recommendations</p>
+				<p>Exercise plans and challenges</p>
+				<p>Discussion forum</p>
+				<h4>Accessory:</h4>
+				<p>Wristband with pedometer and calorie tracker</p>
+			</div>
+			<div class='col-md-3'>
+				<h3 class='account-gold'>Gold<small> TBD</small></h3>
+				<h4>Access to:</h4>
+				<p>Snack and dessert recipes</p>
+				<p>Workout and yoga videos</p>
+				<p>Custom dietary recommendations</p>
+				<p>Custom exercise plans and challenges</p>
+				<p>Custom grocery lists and restaurant recommendations</p>
+				<h4>Accessory:</h4>
+				<p>Smart watch with fitness tracking capabilities</p>
 			</div>
 			<hr>
 		</div>
@@ -112,8 +112,8 @@
 				<h3>Stay connected.</h3>
 				<p>Discover new recipes every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Fitness Tracker to get insights into your health and more.</p>
 			</div>
+			<hr>
 		</div>
-		<hr>
 	</div>
 
 	<a id='staff'></a>
