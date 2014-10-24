@@ -13,6 +13,27 @@
 		<div class='row text-center'>
 			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
 		</div>
+		<div class='row text-center'>
+			<div class='col-md-6'>
+				<h2>Articles:</h2>
+
+				<?php
+					$stmt = $db->prepare('SELECT * FROM articles ORDER BY id DESC LIMIT 5');
+					$stmt->execute();
+					$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					foreach ($results as $article) {
+						$article['date_parsed'] = date_parse($article['date']);
+				?>
+
+				<br>
+				<h4><a href='#'><?php echo $article['title']; ?></a></h4>
+				<p><?php echo $article['date_parsed']['month'] . '/' . $article['date_parsed']['day'] . '/' . $article['date_parsed']['year']; ?></p>
+
+				<?php } ?>
+
+			</div>
+		</div>
 	</div>
 
 	<?php } else { ?>
