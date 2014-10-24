@@ -29,6 +29,10 @@
 
 			<div class='alert alert-danger' role='alert'>Your password is incorrect. Please try again or <a href='mailto:contact@findanewmax.com' class='alert-link'>email us</a> for assistance.</div>
 
+			<?php } else if (isset($password_too_short) && $password_too_short) { ?>
+
+			<div class='alert alert-danger' role='alert'>Your password is too short. Please use at least eight characters.</div>
+
 			<?php } ?>
 
 			<form class='form-inline' method='post' role='form'>
