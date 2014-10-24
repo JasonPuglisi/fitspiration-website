@@ -88,7 +88,24 @@
 </head>
 <body>
 
-	<?php if ($signed_in) { ?>
+	<?php
+		if ($signed_in) {
+			$account_levels_inherited = array();
+
+			switch($account_level) {
+				case 'Diamond':
+					$account_levels_inherited[] = 'Diamond';
+				case 'Gold':
+					$account_levels_inherited[] = 'Gold';
+				case 'Silver':
+					$account_levels_inherited[] = 'Silver';
+				case 'Bronze':
+					$account_levels_inherited[] = 'Bronze';
+				case 'Basic':
+					$account_levels_inherited[] = 'Basic';
+				break;
+			}
+	?>
 
 	<nav class='navbar navbar-default' role='navigation'>
 		<div class='container-fluid'>
