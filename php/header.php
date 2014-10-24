@@ -1,10 +1,18 @@
 <?php
 	require $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
 
+	function reload() {
+		$header_location = 'Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']);
+		if ($_SERVER['QUERY_STRING']) {
+			$header_location .= '?' . $_SERVER['QUERY_STRING'];
+		}
+		header($header_location);
+	}
+
 	session_start();
 	if (strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') === 0) {
 		$_SESSION['postdata'] = $_POST;
-		header('Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']));
+		reload();
 		exit;
 	}
 	if (isset($_SESSION['postdata'])) {
