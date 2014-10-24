@@ -66,7 +66,7 @@
 				<p>Workout and yoga video previews</p>
 			</div>
 			<div class='col-md-3'>
-				<h3 class='account-bronze'>Bronze<small> TBD</small></h3>
+				<h3 class='account-bronze'>Bronze<small> $340/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Fitness tracking</p>
 				<p>Quick meal recipes</p>
@@ -76,7 +76,7 @@
 				<p>Wristband with pedometer and calorie tracker</p>
 			</div>
 			<div class='col-md-3'>
-				<h3 class='account-silver'>Silver<small> TBD</small></h3>
+				<h3 class='account-silver'>Silver<small> $520/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Breakfast, lunch, and dinner recipes</p>
 				<p>Dietary recommendations</p>
@@ -86,7 +86,7 @@
 				<p>Wristband with pedometer and calorie tracker</p>
 			</div>
 			<div class='col-md-3'>
-				<h3 class='account-gold'>Gold<small> TBD</small></h3>
+				<h3 class='account-gold'>Gold<small> $875/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Snack and dessert recipes</p>
 				<p>Workout and yoga videos</p>
