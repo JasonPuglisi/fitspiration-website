@@ -6,7 +6,7 @@
 					<p><i class='fa fa-copyright'></i> FITspiration 2014</p>
 				</div>
 				<div class='col-md-4'>
-					<p><i class='fa fa-envelope'></i> Email: <a href='mailto:contact@findanewmax.com'>contact@findanewmax.com</a></p>
+					<p><i class='fa fa-envelope'></i> Email: <a href='mailto:fitspiration.nj@veinternational.org'>fitspiration.nj@veinternational.org</a></p>
 				</div>
 				<div class='col-md-4'>
 					<p><i class='fa fa-institution'></i> For educational purposes only</p>
