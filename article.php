@@ -2,7 +2,7 @@
 	require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 	if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
-		$stmt = $db->prepare('SELECT * FROM articles WHERE id=:id LIMIT 1');
+		$stmt = $db->prepare('SELECT level, title, date, source, body, image, description, category FROM articles WHERE id=:id LIMIT 1');
 		$stmt->execute(array(
 			':id'=>$_GET['id']
 		));
@@ -22,17 +22,22 @@
 			$article_allowed = array_search($article_level, $account_levels_inherited) !== false;
 		}
 	}
+
+	if (!$article_valid) {
+		$error = $ERROR_MESSAGE['article_invalid'];
+	}
+
+	else if (!$signed_in) {
+		$error = $ERROR_MESSAGE['not_signed_in'];
+	}
+
+	else if (!$article_allowed) {
+		$error = preg_replace('/%LEVEL%/', $article_level, $ERROR_MESSAGE['article_not_allowed']);
+	}
+
+	if (!$error) {
 ?>
 
-	<div class='jumbotron' <?php if ($article_image) echo 'style=\'background-image:url("' . $article_image .  '");\''; ?>>
-		<div class='container text-center'>
-			<img class='img-logo' src='/img/logo.svg' width='20%' alt='Logo'>
-		</div>
-	</div>
-
-	<?php if ($signed_in && $article_valid && $article_allowed) { ?>
-
-	<a id='article'></a>
 	<div class='container'>
 		<div class='row text-center'>
 			<h1><?php echo $article_title; ?></h1>
@@ -54,36 +59,18 @@
 		</div>
 	</div>
 
-	<?php } else if ($signed_in && $article_valid) { ?>
+	<?php } else  { ?>
 
 	<a id='error'></a>
 	<div class='container'>
 		<div class='row text-center'>
-			<h1>You're not allowed to view this article  <i class='fa fa-frown-o'></i></h1>
-			<h3>This article is only available to <span class='account-<?php echo strtolower($article_level); ?>'><?php echo $article_level; ?></span> level subscribers. If you'd like, you can <a href='account'>upgrade your account</a> or <a href='/'>return to the home page</a>.</h3>
+			<h1><?php echo $ERROR_MESSAGE['default']; ?></h1>
+			<h3><?php echo $error; ?></h3>
 		</div>
 	</div>
 
-	<?php } else if ($signed_in) { ?>
+	<?php
+		}
 
-	<a id='error'></a>
-	<div class='container'>
-		<div class='row text-center'>
-			<h1>This article doesn't exist  <i class='fa fa-frown-o'></i></h1>
-			<h3>Make sure your link is correct and try again. If you'd like, you can <a href='/'>return to the home page</a>.</h3>
-		</div>
-	</div>
-
-	<?php } else { ?>
-
-	<a id='error'></a>
-	<div class='container'>
-		<div class='row text-center'>
-			<h1>You're not signed in  <i class='fa fa-frown-o'></i></h1>
-			<h3>For access to articles, please register or sign in on the <a href='/'>home page</a>.</h3>
-		</div>
-	</div>
-
-	<?php } ?>
-
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php'; ?>
+		require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php';
+	?>

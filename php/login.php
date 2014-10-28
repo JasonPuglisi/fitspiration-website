@@ -2,7 +2,7 @@
 	if (isset($_POST['email']) && isset($_POST['password'])) {
 		if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 			if (strlen($_POST['password']) >= 8) {
-				$stmt = $db->prepare('SELECT * FROM accounts WHERE email=:email LIMIT 1');
+				$stmt = $db->prepare('SELECT password FROM accounts WHERE email=:email LIMIT 1');
 				$stmt->execute(array(
 					':email'=>$_POST['email']
 				));
@@ -25,13 +25,14 @@
 						));
 
 						setcookie('session', $update_session_id, 0, '/');
-						$logged_in = true;
 
 						reload();
 					}
 				}
 
 				else {
+					require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_DIRECTORY;
+
 					$insert_email = $_POST['email'];
 					$insert_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$insert_session_id = md5(mcrypt_create_iv(16, MCRYPT_RAND) . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'] . uniqid(microtime(), true));
@@ -49,9 +50,6 @@
 					));
 
 					setcookie('session', $insert_session_id, 0, '/');
-					$account_created = true;
-
-					require $_SERVER['DOCUMENT_ROOT'] . '/sendgrid/sendgrid-php.php';
 
 					$sendgrid = new SendGrid($SENDGRID_USERNAME, $SENDGRID_PASSWORD);
 
@@ -69,10 +67,10 @@
 			}
 
 			else {
-				$password_too_short = true;
+				$error = 'password_too_short';
 			}
 		} else {
-			$email_valid = false;
+			$error = 'email_invalid';
 		}
 	}
 ?>

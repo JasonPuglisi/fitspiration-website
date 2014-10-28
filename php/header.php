@@ -28,25 +28,36 @@
 	$signed_in = false;
 
 	if (isset($_COOKIE['session'])) {
-		$stmt = $db->prepare('SELECT * FROM accounts WHERE session_id=:session_id LIMIT 1');
+		$stmt = $db->prepare('SELECT session_id, session_ip, session_user_agent, level FROM accounts WHERE session_id=:session_id LIMIT 1');
 		$stmt->execute(array(
 			':session_id'=>$_COOKIE['session']
 		));
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		if ($results) {
-			$account_email = $results[0]['email'];
-			$account_password = $results[0]['password'];
-			$account_level = $results[0]['level'];
-			$account_name = $results[0]['name'];
-			$account_company = $results[0]['company'];
-			$account_address = $results[0]['address'];
 			$account_session_id = $results[0]['session_id'];
 			$account_session_ip = $results[0]['session_ip'];
 			$account_session_user_agent = $results[0]['session_user_agent'];
+			$account_level = $results[0]['level'];
 
 			if ($account_session_id == $_COOKIE['session'] && $account_session_ip == $_SERVER['REMOTE_ADDR'] && $account_session_user_agent == $_SERVER['HTTP_USER_AGENT']) {
 				$signed_in = true;
+
+				$account_levels_inherited = array();
+
+				switch($account_level) {
+					case 'Diamond':
+						$account_levels_inherited[] = 'Diamond';
+					case 'Gold':
+						$account_levels_inherited[] = 'Gold';
+					case 'Silver':
+						$account_levels_inherited[] = 'Silver';
+					case 'Bronze':
+						$account_levels_inherited[] = 'Bronze';
+					case 'Basic':
+						$account_levels_inherited[] = 'Basic';
+					break;
+				}
 			}
 		}
 
@@ -91,29 +102,21 @@
 		<script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
 	<![endif]-->
 
-	<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-39410002-8', 'auto');ga('require', 'displayfeatures');ga('send', 'pageview');</script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-39410002-8', 'auto');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
+	</script>
 
 </head>
 <body>
 
-	<?php
-		if ($signed_in) {
-			$account_levels_inherited = array();
-
-			switch($account_level) {
-				case 'Diamond':
-					$account_levels_inherited[] = 'Diamond';
-				case 'Gold':
-					$account_levels_inherited[] = 'Gold';
-				case 'Silver':
-					$account_levels_inherited[] = 'Silver';
-				case 'Bronze':
-					$account_levels_inherited[] = 'Bronze';
-				case 'Basic':
-					$account_levels_inherited[] = 'Basic';
-				break;
-			}
-	?>
+	<?php if ($signed_in) { ?>
 
 	<nav class='navbar navbar-default' role='navigation'>
 		<div class='container-fluid'>
@@ -128,8 +131,54 @@
 				<form class='navbar-form navbar-right' method='post' role='form'>
 					<button type='submit' class='btn btn-default' id='signout' name='logout' value='true'>Sign out</button>
 				</form>
+				<ul class='nav navbar-nav navbar-right'>
+					<li><a href='/articles'>Articles</a></li>
+					<li><a href='/recipes'>Recipes</a></li>
+					<li><a href='/workouts'>Workouts</a></li>
+					<li><a href='/account'>Account</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
+
+	<?php } else { ?>
+
+	<nav class='navbar navbar-default' role='navigation'>
+		<div class='container-fluid'>
+			<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar-collapse'>
+				<span class='sr-only'>Toggle navigation</span>
+				<span class='icon-bar'></span>
+				<span class='icon-bar'></span>
+				<span class='icon-bar'></span>
+			</button>
+			<a class='navbar-brand' href='/'>FITspiration</a>
+			<div class='collapse navbar-collapse' id='navbar-collapse'>
+				<form class='navbar-form navbar-right' action='/#body' method='post' role='form'>
+					<button type='submit' class='btn btn-default'>Register or sign in</button>
+				</form>
+				<ul class='nav navbar-nav navbar-right'>
+					<li><a href='/staff'>Staff</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<?php } ?>
+
+	<div class='jumbotron'>
+		<div class='container text-center'>
+			<img class='img-logo' src='/img/logo.svg' width='20%' alt='Logo'>
+		</div>
+	</div>
+	<br>
+	<a id='body'></a>
+
+	<?php if ($error) { ?>
+
+	<div class='container'>
+		<div class='row text-center'>
+			<div class='alert alert-danger' role='alert'><?php echo $ERROR_MESSAGE[$error]; ?></div>
+		</div>
+	</div>
 
 	<?php } ?>

@@ -1,11 +1,5 @@
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php'; ?>
 
-	<div class='jumbotron'>
-		<div class='container text-center'>
-			<img class='img-logo' src='/img/logo.svg' width='20%' alt='Logo'>
-		</div>
-	</div>
-
 	<?php if ($signed_in) { ?>
 
 	<a id='account'></a>
@@ -14,7 +8,7 @@
 			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
 		</div>
 		<div class='row text-center'>
-			<div class='col-md-6'>
+			<div class='col-sm-6'>
 				<h2>Articles:</h2>
 
 				<?php
@@ -86,11 +80,11 @@
 						$reddit_item_count++;
 			?>
 
-			<div class='col-md-3'>
+			<div class='col-xs-6 col-sm-3'>
 				<div class='thumbnail'>
-					<a href='<?php echo $reddit_item_link; ?>'><img src='<?php echo $reddit_item_link; ?>' class='img-responsive img-rounded' alt='Image'></a>
+					<a href='<?php echo $reddit_item_link; ?>'><img src='<?php echo $reddit_item_link; ?>' class='img-responsive' alt='Image'></a>
 					<div class='caption'>
-						<h3><a href='<?php echo $reddit_item_permalink; ?>'><?php echo $reddit_item_title; ?></h3></a>
+						<p><a href='<?php echo $reddit_item_permalink; ?>'><?php echo $reddit_item_title; ?></p></a>
 					</div>
 				</div>
 			</div>
@@ -117,21 +111,6 @@
 		<div class='row text-center'>
 			<h2>On your mark, get set, go! <i class='fa fa-flag-checkered'></i></h2>
 			<br>
-
-			<?php if (isset($password_valid) && !$password_valid) { ?>
-
-			<div class='alert alert-danger' role='alert'>Your password is incorrect. Please try again or <a href='mailto:contact@findanewmax.com' class='alert-link'>email us</a> for assistance.</div>
-
-			<?php } else if (isset($password_too_short) && $password_too_short) { ?>
-
-			<div class='alert alert-danger' role='alert'>Your password is too short. Please use at least eight characters.</div>
-
-			<?php } else if (isset($email_valid) && !$email_valid) { ?>
-
-			<div class='alert alert-danger' role='alert'>Your email is invalid. Please enter a valid email address.</div>
-
-			<?php } ?>
-
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
 					<label class='sr-only' for='emailInput'>Email</label>
@@ -153,14 +132,14 @@
 			<h4>Once you're logged in, you'll be able to choose one of the plans below for full access to FITspiration!</h4>
 		</div>
 		<div class='row text-center'>
-			<div class='col-md-3'>
+			<div class='col-sm-6 col-md-3'>
 				<h3 class='account-basic'>Basic<small> Free</small></h3>
 				<h4>Access to:</h4>
 				<p>Recipe previews</p>
 				<p>Exercise previews</p>
 				<p>Workout and yoga video previews</p>
 			</div>
-			<div class='col-md-3'>
+			<div class='col-sm-6 col-md-3'>
 				<h3 class='account-bronze'>Bronze<small> $340/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Fitness tracking</p>
@@ -170,7 +149,7 @@
 				<h4>Accessory:</h4>
 				<p>Wristband with pedometer and calorie tracker</p>
 			</div>
-			<div class='col-md-3'>
+			<div class='col-sm-6 col-md-3'>
 				<h3 class='account-silver'>Silver<small> $520/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Breakfast, lunch, and dinner recipes</p>
@@ -180,7 +159,7 @@
 				<h4>Accessory:</h4>
 				<p>Wristband with pedometer and calorie tracker</p>
 			</div>
-			<div class='col-md-3'>
+			<div class='col-sm-6 col-md-3'>
 				<h3 class='account-gold'>Gold<small> $875/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Snack and dessert recipes</p>
