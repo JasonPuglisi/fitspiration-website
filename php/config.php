@@ -23,6 +23,7 @@
 	$ERROR_MESSAGE['email_invalid'] = 'Your email is invalid. Please enter a valid email address.';
 	$ERROR_MESSAGE['password_incorrect'] = 'Your password is incorrect. Please try again or <a href=\'mailto:contact@findanewmax.com\' class=\'alert-link\'>email us</a> for assistance.';
 	$ERROR_MESSAGE['password_too_short'] = 'Your password is too short. Please use at least eight characters.';
+	$ERROR_MESSAGE['profile_incomplete'] = 'Your profile is not complete. Please update your information and try again.';
 	$ERROR_MESSAGE['no_articles'] = 'There are no articles available yet. Please check back later.';
 	$ERROR_MESSAGE['article_invalid'] = 'This article doesn\'t exist. Make sure your link is correct and try again. If you\'d like, you can <a href=\'/\'>return to the home page</a>.</i>';
 	$ERROR_MESSAGE['article_not_allowed'] = 'This article is only available to <span class=\'account-%LEVEL%\'>%LEVEL%</span> level subscribers. If you\'d like, you can <a href=\'account\'>upgrade your account</a> or <a href=\'/\'>return to the home page</a>.'
