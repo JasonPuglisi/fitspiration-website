@@ -3,7 +3,7 @@
 	<a id='staff'></a>
 	<div class='container'>
 		<div class='row text-center'>
-			<h2>Meet our staff. <i class='fa fa-users'></i></h2>
+			<h1>Meet our staff. <i class='fa fa-users'></i></h1>
 			<br>
 			<p>Our staff work hard to give you the personalized experience you need to help you live a healthy and active lifestyle. As a company, we dedicate ourselves fully to helping you create a positive lifestyle that will stay with you for the rest of your life.</p>
 			<br>
