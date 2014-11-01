@@ -40,7 +40,10 @@
 		</div>
 		<hr>
 		<div class='row'>
-			<?php echo $article_body; ?>
+			<?php
+				require $_SERVER['DOCUMENT_ROOT'] . $PARSEDOWN_LOCATION;
+				echo (new Parsedown())->text($article_body);
+			?>
 			<br>
 			<h4 class='text-center'><small>Published <?php echo date('l, F j, Y', strtotime($article_date)); ?> in <span class='badge'><?php echo $article_category; ?></span>
 
