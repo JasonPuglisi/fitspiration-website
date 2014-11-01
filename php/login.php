@@ -29,7 +29,7 @@
 						reload();
 					}
 				} else {
-					require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_DIRECTORY;
+					require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_LOCATION;
 
 					$insert_email = $_POST['email'];
 					$insert_password = password_hash($_POST['password'], PASSWORD_DEFAULT);

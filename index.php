@@ -2,46 +2,66 @@
 
 	<?php if ($signed_in) { ?>
 
-	<a id='account'></a>
 	<div class='container'>
 		<div class='row text-center'>
 			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
 		</div>
 		<div class='row text-center'>
-			<div class='col-sm-6'>
-				<h2>Articles:</h2>
+			<div class='col-sm-6 col-md-4'>
+				<h2>Recent articles:</h2>
 
 				<?php
 					$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
 					$stmt->execute();
 					$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-					foreach ($results as $article) {
-						$days_ago = date_diff(date_create(date('Y-m-d')), date_create($article['date']))->format('%a');
-						$days_ago_string = $days_ago . ' days ago';
+					if ($results) {
+						foreach ($results as $article) {
+							$days_ago = date_diff(date_create(date('Y-m-d')), date_create($article['date']))->format('%a');
+							$days_ago_string = $days_ago . ' days ago';
 
-						switch (true) {
-							case ($days_ago == 0):
-								$days_ago_string = 'today <span class=\'badge\'>New!</span>';
-							break;
-							case ($days_ago == 1):
-								$days_ago_string = 'yesterday';
-							break;
-							case ($days_ago == 7):
-								$days_ago_string = 'a week ago';
-							break;
-							case ($days_ago > 7):
-								$days_ago_string = date('l, F j, Y', strtotime($article['date']));
-							break;
-						}
+							switch (true) {
+								case ($days_ago == 0):
+									$days_ago_string = 'today <span class=\'badge\'>New!</span>';
+								break;
+								case ($days_ago == 1):
+									$days_ago_string = 'yesterday';
+								break;
+								case ($days_ago == 7):
+									$days_ago_string = 'a week ago';
+								break;
+								case ($days_ago > 7):
+									$days_ago_string = date('l, F j, Y', strtotime($article['date']));
+								break;
+							}
 				?>
 
 				<br>
 				<h4><a href='article?id=<?php echo $article['id']; ?>'><?php echo $article['title']; ?></a></h4>
 				<p>Published <?php echo $days_ago_string; ?></p>
 
+				<?php }
+					} else { ?>
+
+						<h3><?php echo $ERROR_MESSAGE['no_articles']; ?></h3>
+
 				<?php } ?>
 
+				<br>
+				<p><a class='btn btn-default' href='articles'>View all</a></p>
+
+			</div>
+
+			<div class='col-sm-6 col-md-4'>
+				<h2>Recent workouts:</h2>
+				<br>
+				<p><a class='btn btn-default' href='workouts'>View all</a></p>
+			</div>
+
+			<div class='col-sm-6 col-md-4'>
+				<h2>Recent recipes:</h2>
+				<br>
+				<p><a class='btn btn-default' href='recipes'>View all</a></p>
 			</div>
 		</div>
 
