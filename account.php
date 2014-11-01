@@ -58,15 +58,11 @@
 	?>
 
 	<div class='container'>
+
 		<a id='account'></a>
 		<div class='row text-center'>
 			<h1>Account<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
-			<hr>
-		</div>
-
-		<a id='profile'></a>
-		<div class='row text-center'>
-			<h2>Profile <i class='fa fa-user'></i></h2>
+			<p>Before you modify your account, please fill out and verify your profile information. This lets up keep track of your orders!</p>
 			<br>
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
@@ -93,11 +89,60 @@
 				<button type='submit' class='btn btn-primary'>Update profile</button>
 			</form>
 		</div>
+		<hr>
+
+		<a id='levels'></a>
+		<div class='row text-center'>
+			<h1>Levels <i class='fa fa-bar-chart'></i></h1>
+			<p>As soon as you select a level, your account will be updated. The price of each level is listed next to the name. Use your Virtual Enterprises International bank account to send a payment to FITspiration once you're done. Keep in mind that your purchase is non-refundable, and if you wish to change your level at a later date, you  must pay the full price.</p>
+		</div>
+		<div class='row text-center'>
+			<div class='col-sm-6 col-md-3'>
+				<h3 class='account-basic'>Basic<small> Free</small></h3>
+				<h4>Access to:</h4>
+				<p>Recipe previews</p>
+				<p>Exercise previews</p>
+				<p>Workout and yoga video previews</p>
+			</div>
+			<div class='col-sm-6 col-md-3'>
+				<h3 class='account-bronze'>Bronze<small> $340/yr</small></h3>
+				<h4>Access to:</h4>
+				<p>Fitness tracking</p>
+				<p>Quick meal recipes</p>
+				<p>Exercise information</p>
+				<p>Health articles</p>
+				<h4>Accessory:</h4>
+				<p>Wristband with pedometer and calorie tracker</p>
+			</div>
+			<div class='col-sm-6 col-md-3'>
+				<h3 class='account-silver'>Silver<small> $520/yr</small></h3>
+				<h4>Access to:</h4>
+				<p>Breakfast, lunch, and dinner recipes</p>
+				<p>Dietary recommendations</p>
+				<p>Exercise plans and challenges</p>
+				<p>Discussion forum</p>
+				<h4>Accessory:</h4>
+				<p>Wristband with pedometer and calorie tracker</p>
+			</div>
+			<div class='col-sm-6 col-md-3'>
+				<h3 class='account-gold'>Gold<small> $875/yr</small></h3>
+				<h4>Access to:</h4>
+				<p>Snack and dessert recipes</p>
+				<p>Workout and yoga videos</p>
+				<p>Custom dietary recommendations</p>
+				<p>Custom exercise plans and challenges</p>
+				<p>Custom grocery lists and restaurant recommendations</p>
+				<h4>Accessory:</h4>
+				<p>Smart watch with fitness tracking capabilities</p>
+			</div>
+		</div>
+
 	</div>
 
-	<?php } else {
+	<?php } else
 		$error = $ERROR_MESSAGE['not_signed_in'];
-	?>
+
+		if ($error) { ?>
 
 	<a id='error'></a>
 	<div class='container'>

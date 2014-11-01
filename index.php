@@ -5,6 +5,7 @@
 	<div class='container'>
 		<div class='row text-center'>
 			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
+			<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
 		</div>
 		<div class='row text-center'>
 			<div class='col-sm-6 col-md-4'>
