@@ -28,9 +28,7 @@
 
 						reload();
 					}
-				}
-
-				else {
+				} else {
 					require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_DIRECTORY;
 
 					$insert_email = $_POST['email'];
@@ -64,13 +62,9 @@
 
 					reload();
 				}
-			}
-
-			else {
+			} else
 				$error = 'password_too_short';
-			}
-		} else {
+		} else
 			$error = 'email_invalid';
-		}
 	}
 ?>

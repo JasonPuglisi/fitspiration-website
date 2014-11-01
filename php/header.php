@@ -3,9 +3,8 @@
 
 	function reload() {
 		$header_location = 'Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']);
-		if ($_SERVER['QUERY_STRING']) {
+		if ($_SERVER['QUERY_STRING'])
 			$header_location .= '?' . $_SERVER['QUERY_STRING'];
-		}
 		header($header_location);
 	}
 
@@ -61,9 +60,8 @@
 			}
 		}
 
-		if (!$signed_in) {
+		if (!$signed_in)
 			setcookie('session', '', time() - 3600, '/');
-		}
 	}
 ?>
 
