@@ -190,8 +190,8 @@ else
 		</div>
 	</div>
 	<br>
-	<a id='body'></a>
 
+	<a id='body'></a>
 	<div class='container'>
 
 <?php
