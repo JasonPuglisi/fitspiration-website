@@ -1,68 +1,77 @@
 <?php
-	require $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
 
-	function reload() {
-		$header_location = 'Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']);
-		if ($_SERVER['QUERY_STRING'])
-			$header_location .= '?' . $_SERVER['QUERY_STRING'];
-		header($header_location);
+function reload()
+{	$header_location = 'Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']);
+	if (!empty($_SERVER['QUERY_STRING']))
+	{	$header_location .= '?' . $_SERVER['QUERY_STRING'];
 	}
+	header($header_location);
+}
 
-	session_start();
-	if (strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') === 0) {
-		$_SESSION['postdata'] = $_POST;
-		reload();
-		exit;
-	}
-	if (isset($_SESSION['postdata'])) {
-		$_POST = $_SESSION['postdata'];
-		unset($_SESSION['postdata']);
-	}
+session_start();
 
-	$db = new PDO("$DATABASE_TYPE:dbname=$DATABASE_NAME;host=$DATABASE_HOST", $USER_NAME, $USER_PASSWORD);
+if (strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') === 0)
+{	$_SESSION['postdata'] = $_POST;
+	reload();
+	exit;
+}
 
-	require $_SERVER['DOCUMENT_ROOT'] . '/php/login.php';
-	require $_SERVER['DOCUMENT_ROOT'] . '/php/logout.php';
+if (isset($_SESSION['postdata']))
+{	$_POST = $_SESSION['postdata'];
+	unset($_SESSION['postdata']);
+}
 
-	$signed_in = false;
+if (isset($_SESSION['error']))
+{	$error = $_SESSION['error'];
 
-	if (isset($_COOKIE['session'])) {
-		$stmt = $db->prepare('SELECT session_id, session_ip, session_user_agent, level FROM accounts WHERE session_id=:session_id LIMIT 1');
-		$stmt->execute(array(
-			':session_id'=>$_COOKIE['session']
-		));
-		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	unset($_SESSION['error']);
+}
 
-		if ($results) {
-			$account_session_id = $results[0]['session_id'];
-			$account_session_ip = $results[0]['session_ip'];
-			$account_session_user_agent = $results[0]['session_user_agent'];
-			$account_level = $results[0]['level'];
+$db = new PDO("$DATABASE_TYPE:dbname=$DATABASE_NAME;host=$DATABASE_HOST", $USER_NAME, $USER_PASSWORD);
 
-			if ($account_session_id == $_COOKIE['session'] && $account_session_ip == $_SERVER['REMOTE_ADDR'] && $account_session_user_agent == $_SERVER['HTTP_USER_AGENT']) {
-				$signed_in = true;
+require $_SERVER['DOCUMENT_ROOT'] . '/php/login.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/php/logout.php';
 
-				$account_levels_inherited = array();
+$signed_in = false;
 
-				switch($account_level) {
-					case 'Diamond':
-						$account_levels_inherited[] = 'Diamond';
-					case 'Gold':
-						$account_levels_inherited[] = 'Gold';
-					case 'Silver':
-						$account_levels_inherited[] = 'Silver';
-					case 'Bronze':
-						$account_levels_inherited[] = 'Bronze';
-					case 'Basic':
-						$account_levels_inherited[] = 'Basic';
+if (isset($_COOKIE['session']))
+{	$stmt = $db->prepare('SELECT level, session_id, session_ip, session_user_agent FROM accounts WHERE session_id=:session_id LIMIT 1');
+	$stmt->execute(array(
+		':session_id'=>$_COOKIE['session']
+	));
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	if ($results)
+	{	$account_level = $results[0]['level'];
+		$account_session_id = $results[0]['session_id'];
+		$account_session_ip = $results[0]['session_ip'];
+		$account_session_user_agent = $results[0]['session_user_agent'];
+
+		if ($account_session_id === $_COOKIE['session'] && $account_session_ip === $_SERVER['REMOTE_ADDR'] && $account_session_user_agent === $_SERVER['HTTP_USER_AGENT'])
+		{	$signed_in = true;
+
+			$account_levels_inherited = array();
+			switch($account_level)
+			{	case 'Diamond':
+					$account_levels_inherited[] = 'Diamond';
+				case 'Gold':
+					$account_levels_inherited[] = 'Gold';
+				case 'Silver':
+					$account_levels_inherited[] = 'Silver';
+				case 'Bronze':
+					$account_levels_inherited[] = 'Bronze';
+				case 'Basic':
+					$account_levels_inherited[] = 'Basic';
 					break;
-				}
 			}
 		}
-
-		if (!$signed_in)
-			setcookie('session', '', time() - 3600, '/');
 	}
+
+	if (!$signed_in)
+	{	setcookie('session', '', time() - 3600, '/');
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +123,10 @@
 </head>
 <body>
 
-	<?php if ($signed_in) { ?>
+<?php
+if ($signed_in)
+{
+?>
 
 	<nav class='navbar navbar-default' role='navigation'>
 		<div class='container-fluid'>
@@ -139,7 +151,11 @@
 		</div>
 	</nav>
 
-	<?php } else { ?>
+<?php
+}
+else
+{
+?>
 
 	<nav class='navbar navbar-default' role='navigation'>
 		<div class='container-fluid'>
@@ -161,7 +177,9 @@
 		</div>
 	</nav>
 
-	<?php } ?>
+<?php
+}
+?>
 
 	<div class='jumbotron'>
 		<div class='container text-center'>
@@ -171,12 +189,19 @@
 	<br>
 	<a id='body'></a>
 
-	<?php if ($error) { ?>
-
 	<div class='container'>
-		<div class='row text-center'>
-			<div class='alert alert-danger' role='alert'><?php echo $ERROR_MESSAGE[$error]; ?></div>
-		</div>
-	</div>
 
-	<?php } ?>
+<?php
+if ($error)
+{
+?>
+
+		<a id='error'></a>
+		<div class='container row text-center'>
+			<div class='alert alert-danger' role='alert'><?php echo $ERROR_MESSAGE[$error] ?></div>
+		</div>
+
+<?php
+}
+
+// EOF: header.php

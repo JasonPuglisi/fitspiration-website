@@ -1,56 +1,64 @@
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php'; ?>
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
-	<?php if ($signed_in) { ?>
+if ($signed_in)
+{
+?>
 
-	<div class='container'>
-		<div class='row text-center'>
-			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level); ?>'><?php echo $account_level; ?> <i class='fa fa-trophy'></i></span></small></h1>
+		<a id='dashboard'></a>
+		<div class='container row text-center'>
+			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level) ?>'><?php echo $account_level ?> <i class='fa fa-trophy'></i></span></small></h1>
 			<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
 		</div>
-		<div class='row text-center'>
+		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-4'>
 				<h2>Recent articles:</h2>
 
-				<?php
-					$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
-					$stmt->execute();
-					$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+<?php
+	$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-					if ($results) {
-						foreach ($results as $article) {
-							$days_ago = date_diff(date_create(date('Y-m-d')), date_create($article['date']))->format('%a');
-							$days_ago_string = $days_ago . ' days ago';
+	if ($results)
+	{	foreach ($results as $article)
+		{	$days_ago = date_diff(date_create(date('Y-m-d')), date_create($article['date']))->format('%a');
+			$days_ago_string = $days_ago . ' days ago';
 
-							switch (true) {
-								case ($days_ago == 0):
-									$days_ago_string = 'today <span class=\'badge\'>New!</span>';
-								break;
-								case ($days_ago == 1):
-									$days_ago_string = 'yesterday';
-								break;
-								case ($days_ago == 7):
-									$days_ago_string = 'a week ago';
-								break;
-								case ($days_ago > 7):
-									$days_ago_string = date('l, F j, Y', strtotime($article['date']));
-								break;
-							}
-				?>
+			switch (true)
+			{	case ($days_ago == 0):
+					$days_ago_string = 'today <span class=\'badge\'>New!</span>';
+					break;
+				case ($days_ago == 1):
+					$days_ago_string = 'yesterday';
+					break;
+				case ($days_ago == 7):
+					$days_ago_string = 'a week ago';
+					break;
+				case ($days_ago > 7):
+					$days_ago_string = date('l, F j, Y', strtotime($article['date']));
+					break;
+			}
+?>
 
 				<br>
-				<h4><a href='article?id=<?php echo $article['id']; ?>'><?php echo $article['title']; ?></a></h4>
-				<p>Published <?php echo $days_ago_string; ?></p>
+				<h4><a href='article?id=<?php echo $article['id'] ?>'><?php echo $article['title'] ?></a></h4>
+				<p>Published <?php echo $days_ago_string ?></p>
 
-				<?php }
-					} else { ?>
+<?php
+		}
+	}
+	else
+	{
+?>
 
-						<h3><?php echo $ERROR_MESSAGE['no_articles']; ?></h3>
+				<h3><?php echo $ERROR_MESSAGE['no_articles']; ?></h3>
 
-				<?php } ?>
+<?php
+	}
+?>
 
 				<br>
 				<p><a class='btn btn-default' href='articles'>View all</a></p>
-
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
@@ -66,69 +74,73 @@
 			</div>
 		</div>
 
-		<?php
-			if (!isset($_COOKIE['demo']) && array_search('Diamond', $account_levels_inherited) !== false) {
-				$reddit_link_source = $REDDIT_SUBREDDIT;
-		?>
+<?php
+	if (!isset($_COOKIE['demo']) && array_search('Diamond', $account_levels_inherited) !== false)
+	{	$reddit_link_source = $REDDIT_SUBREDDIT;
+?>
 
-		<hr>
-		<a id='<?php echo $reddit_link_source; ?>'></a>
-		<div class='row text-center'>
-			<h1><a href='https://www.reddit.com/r/<?php echo $reddit_link_source; ?>'><?php echo $reddit_link_source; ?></a></h1>
+		<a id='<?php echo $reddit_link_source ?>'></a>
+		<div class='container row text-center'>
+			<hr>
+			<h1><a href='https://www.reddit.com/r/<?php echo $reddit_link_source ?>'><?php echo $reddit_link_source ?></a></h1>
 			<br>
 
-				<?php
-				$reddit_link = 'http://www.reddit.com/r/' . $reddit_link_source . '/hot.json?limit=32';
-				$reddit_data = json_decode(file_get_contents($reddit_link));
+<?php
+		$reddit_link = 'http://www.reddit.com/r/' . $reddit_link_source . '/hot.json?limit=32';
+		$reddit_data = json_decode(file_get_contents($reddit_link));
 
-				$reddit_item_count = 0;
+		$reddit_item_count = 0;
 
-				foreach ($reddit_data->data->children as $reddit_item) {
-					if ($reddit_item_count < 16 && $reddit_item->data->domain == 'i.imgur.com') {
-						if ($reddit_item_count > 0 && $reddit_item_count % 4 == 0) {
-			?>
+		foreach ($reddit_data->data->children as $reddit_item)
+		{	if ($reddit_item_count < 16 && $reddit_item->data->domain === 'i.imgur.com')
+			{	if ($reddit_item_count >= 1 && $reddit_item_count % 4 === 0)
+				{
+?>
 
-				</div>
-				<br>
-				<div class='row text-center'>
+		</div>
+		<br>
+		<div class='container row text-center'>
 
-				<?php }
+<?php
+				}
 
-					$reddit_item_link = preg_replace('/http:/', 'https:', $reddit_item->data->url);
-					$reddit_item_permalink = 'https://www.reddit.com' . $reddit_item->data->permalink;
-					$reddit_item_title = $reddit_item->data->title;
-					$reddit_item_count++;
-				?>
+				$reddit_item_link = preg_replace('/http:/', 'https:', $reddit_item->data->url);
+				$reddit_item_permalink = 'https://www.reddit.com' . $reddit_item->data->permalink;
+				$reddit_item_title = $reddit_item->data->title;
+				$reddit_item_count++;
+?>
 
-			<div class='col-xs-6 col-sm-3'>
+			<div class='col-sm-3'>
 				<div class='thumbnail'>
-					<a href='<?php echo $reddit_item_link; ?>'><img src='<?php echo $reddit_item_link; ?>' class='img-responsive' alt='Image'></a>
+					<a href='<?php echo $reddit_item_link ?>'><img src='<?php echo $reddit_item_link ?>' class='img-responsive' alt='<?php echo $reddit_link_source ?> thumbnail'></a>
 					<div class='caption'>
-						<p><a href='<?php echo $reddit_item_permalink; ?>'><?php echo $reddit_item_title; ?></p></a>
+						<p><a href='<?php echo $reddit_item_permalink ?>'><?php echo $reddit_item_title ?></a></p>
 					</div>
 				</div>
 			</div>
 
-			<?php }
-				}
-			?>
+<?php
+			}
+		}
+?>
 
 		</div>
 
-		<?php } ?>
+<?php
+	}
+}
+else
+{
+?>
 
-	</div>
-
-	<?php } else { ?>
-
-	<a id='fitspiration'></a>
-	<div class='container'>
-		<div class='row text-center'>
-			<h1><strong>FIT</strong>spiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
+		<a id='fitspiration'></a>
+		<div class='container row text-center'>
+			<h1>FITspiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
+			<hr>
 		</div>
-		<hr>
-		<div class='row text-center'>
-			<h2>On your mark, get set, go! <i class='fa fa-flag-checkered'></i></h2>
+		<div class='container row text-center'>
+			<h2>Get started <i class='fa fa-flag-checkered'></i></h2>
+			<p>On your mark, get set, go! Let's find a healthy lifestyle that fits you.</p>
 			<br>
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
@@ -148,38 +160,44 @@
 				<button type='submit' class='btn btn-primary'>Register or sign in</button>
 			</form>
 			<br>
-			<h4>Once you're logged in, you'll be able to choose one of the plans below for full access to FITspiration!</h4>
+			<hr>
 		</div>
-		<div class='row text-center'>
+
+		<a id='plans'></a>
+		<div class='container row text-center'>
+			<h2>Plans <i class='fa fa-bar-chart'></i></h2>
+			<p>Check out what's waiting for you when you activate your account!</p>
+		</div>
+		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-basic'>Basic<small> Free</small></h3>
+				<h3 class='account-basic'>Basic<small> <?php echo $LEVEL_PRICES['Basic'] ?></small></h3>
 				<h4>Access to:</h4>
 				<p>Recipe previews</p>
 				<p>Exercise previews</p>
 				<p>Workout and yoga video previews</p>
 			</div>
 			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-bronze'>Bronze<small> $340/yr</small></h3>
+				<h3 class='account-bronze'>Bronze<small> $<?php echo $LEVEL_PRICES['Bronze'] ?>/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Fitness tracking</p>
 				<p>Quick meal recipes</p>
 				<p>Exercise information</p>
 				<p>Health articles</p>
 				<h4>Accessory:</h4>
-				<p>Wristband with pedometer and calorie tracker</p>
+				<p>Infinity Band with pedometer and calorie tracker</p>
 			</div>
 			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-silver'>Silver<small> $520/yr</small></h3>
+				<h3 class='account-silver'>Silver<small> $<?php echo $LEVEL_PRICES['Silver'] ?>/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Breakfast, lunch, and dinner recipes</p>
 				<p>Dietary recommendations</p>
 				<p>Exercise plans and challenges</p>
 				<p>Discussion forum</p>
 				<h4>Accessory:</h4>
-				<p>Wristband with pedometer and calorie tracker</p>
+				<p>Infinity Band with pedometer and calorie tracker</p>
 			</div>
 			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-gold'>Gold<small> $875/yr</small></h3>
+				<h3 class='account-gold'>Gold<small> $<?php echo $LEVEL_PRICES['Gold'] ?>/yr</small></h3>
 				<h4>Access to:</h4>
 				<p>Snack and dessert recipes</p>
 				<p>Workout and yoga videos</p>
@@ -187,15 +205,23 @@
 				<p>Custom exercise plans and challenges</p>
 				<p>Custom grocery lists and restaurant recommendations</p>
 				<h4>Accessory:</h4>
-				<p>Smart watch with fitness tracking capabilities</p>
+				<p>Infinity Watch with fitness tracking capabilities</p>
 			</div>
 		</div>
-		<hr>
-		<div class='row text-center'>
+		<div class='container row text-center'>
+			<hr>
+		</div>
+
+		<a id='benefits'></a>
+		<div class='container row text-center'>
+			<h2>Benefits <i class='fa fa-star'></i></h2>
+			<p>What does a FITspiration account help you accomplish? Below are some examples, but the possibilities are endless!</p>
+		</div>
+		<div class='container row text-center'>
 			<div class='col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
 				<h3>Stay active.</h3>
-				<p>Follow effective workout plans, face exciting challenges, and meet outstanding goals. Log your activities and share your experiences with others to motivate yourself and those around you.</p>
+				<p>Follow effective workout plans, face exciting challenges, and meet outstanding goals. Keep track your activities and share your experiences with others to motivate yourself and those around you.</p>
 			</div>
 			<div class='col-md-4'>
 				<h3><i class='fa fa-leaf fa-5x'></i></h3>
@@ -205,11 +231,13 @@
 			<div class='col-md-4'>
 				<h3><i class='fa fa-wifi fa-5x'></i></h3>
 				<h3>Stay connected.</h3>
-				<p>Discover new recipes every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Fitness Tracker to get insights into your health and more.</p>
+				<p>Discover new facts every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Infinity Band or Infinity Watch to get insights into your health and more.</p>
 			</div>
 		</div>
-	</div>
 
-	<?php } ?>
+<?php
+}
 
-	<?php require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php'; ?>
+require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php';
+
+// EOF: index.php

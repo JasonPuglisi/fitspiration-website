@@ -1,7 +1,8 @@
 <?php
-	if (isset($_POST['logout']) && $_POST['logout']) {
-		setcookie('session', '', time() - 3600, '/');
+if (isset($_POST['logout']) && $_POST['logout'])
+{	setcookie('session', '', time() - 3600, '/');
 
-		reload();
-	}
-?>
+	reload();
+}
+
+// EOF: logout.php
