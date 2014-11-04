@@ -9,10 +9,18 @@ if ($signed_in)
 		<div class='container row text-center'>
 			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level) ?>'><?php echo $account_level ?> <i class='fa fa-trophy'></i></span></small></h1>
 			<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
+			<hr>
+		</div>
+
+		<a id='resources'></a>
+		<div class='container row text-center'>
+			<h1>Resources <i class='fa fa-compass'></i></h1>
+			<p>Check out our most recent articles, workouts, and recipes below. Be sure to visit often so you don't miss anything!</p>
 		</div>
 		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-4'>
-				<h2>Recent articles:</h2>
+				<h3><i class='fa fa-newspaper-o fa-5x'></i></h3>
+				<h2>Recent articles</h2>
 
 <?php
 	$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
@@ -46,13 +54,15 @@ if ($signed_in)
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h2>Recent workouts:</h2>
+				<h3><i class='fa fa-child fa-5x'></i></h3>
+				<h2>Recent workouts</h2>
 				<br>
 				<p><a class='btn btn-default' href='workouts'>View all</a></p>
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h2>Recent recipes:</h2>
+				<h3><i class='fa fa-cutlery fa-5x'></i></h3>
+				<h2>Recent recipes</h2>
 				<br>
 				<p><a class='btn btn-default' href='recipes'>View all</a></p>
 			</div>
@@ -63,9 +73,12 @@ if ($signed_in)
 	{	$reddit_link_source = $REDDIT_SUBREDDIT;
 ?>
 
-		<a id='<?php echo $reddit_link_source ?>'></a>
 		<div class='container row text-center'>
 			<hr>
+		</div>
+
+		<a id='<?php echo $reddit_link_source ?>'></a>
+		<div class='container row text-center'>
 			<h1><a href='https://www.reddit.com/r/<?php echo $reddit_link_source ?>'><?php echo $reddit_link_source ?></a></h1>
 			<br>
 
@@ -122,8 +135,10 @@ else
 			<h1>FITspiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
 			<hr>
 		</div>
+
+		<a id='start'></a>
 		<div class='container row text-center'>
-			<h2>Get started <i class='fa fa-flag-checkered'></i></h2>
+			<h1>Get started <i class='fa fa-flag-checkered'></i></h1>
 			<p>On your mark, get set, go! Let's find a healthy lifestyle that fits you.</p>
 			<br>
 			<form class='form-inline' method='post' role='form'>
@@ -149,7 +164,7 @@ else
 
 		<a id='plans'></a>
 		<div class='container row text-center'>
-			<h2>Plans <i class='fa fa-bar-chart'></i></h2>
+			<h1>Plans <i class='fa fa-bar-chart'></i></h1>
 			<p>Check out what's waiting for you when you activate your account!</p>
 		</div>
 		<div class='container row text-center'>
@@ -198,21 +213,21 @@ else
 
 		<a id='benefits'></a>
 		<div class='container row text-center'>
-			<h2>Benefits <i class='fa fa-star'></i></h2>
+			<h1>Benefits <i class='fa fa-star'></i></h1>
 			<p>What does a FITspiration account help you accomplish? Below are some examples, but the possibilities are endless!</p>
 		</div>
 		<div class='container row text-center'>
-			<div class='col-md-4'>
+			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
 				<h3>Stay active.</h3>
 				<p>Follow effective workout plans, face exciting challenges, and meet outstanding goals. Keep track your activities and share your experiences with others to motivate yourself and those around you.</p>
 			</div>
-			<div class='col-md-4'>
+			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-leaf fa-5x'></i></h3>
 				<h3>Stay healthy.</h3>
 				<p>Try nutritious recipes, improve your lifestyle, and find a health plan that fits your needs perfectly. Discuss diets and meals with others, and share what works for you and what doesn't.</p>
 			</div>
-			<div class='col-md-4'>
+			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-wifi fa-5x'></i></h3>
 				<h3>Stay connected.</h3>
 				<p>Discover new facts every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Infinity Band or Infinity Watch to get insights into your health and more.</p>
