@@ -69,7 +69,9 @@ if (isset($_COOKIE['session']))
 	}
 
 	if (!$signed_in)
-	{	setcookie('session', '', time() - 3600, '/');
+	{	$error = 'signed_out';
+
+		setcookie('session', '', time() - 3600, '/');
 	}
 }
 ?>

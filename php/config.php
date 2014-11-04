@@ -20,6 +20,7 @@ $LEVEL_PRICES = ['Basic' => 'Free', 'Bronze' => 340, 'Silver' => 520, 'Gold' => 
 
 // Error Messages
 $ERROR_MESSAGE['default'] = 'There\'s a bit of a problem <i class=\'fa fa-frown-o\'></i>';
+$ERROR_MESSAGE['signed_out'] = 'You\'ve been signed out. Please sign in again to continue.';
 $ERROR_MESSAGE['not_signed_in'] = 'You\'re not signed in. To view your account, please register or sign in on the <a href=\'/\'>home page</a>.';
 $ERROR_MESSAGE['email_invalid'] = 'Your email is invalid. Please enter a valid email address.';
 $ERROR_MESSAGE['password_incorrect'] = 'Your password is incorrect. Please try again or <a href=\'mailto:contact@findanewmax.com\' class=\'alert-link\'>email us</a> for assistance.';
