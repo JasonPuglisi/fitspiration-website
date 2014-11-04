@@ -6,19 +6,22 @@ $DATABASE_NAME = 'DATABASE';
 $USER_NAME = 'USERNAME';
 $USER_PASSWORD = 'PASSWORD';
 
-// Package locations
+// Package location details
 $SENDGRID_LOCATION = '/sendgrid/sendgrid-php.php';
 $PARSEDOWN_LOCATION = '/parsedown/Parsedown.php';
 
-// SendGrid SMTP credentials
+// Email details
 $SENDGRID_USERNAME = 'USERNAME';
 $SENDGRID_PASSWORD = 'PASSWORD';
+$EMAIL_OUTBOUND = 'contact@findanewmax.com';
+$EMAIL_INVOICE_COPY = 'contact@findanewmax.com';
 
-// Extra variables
+// Extra details
 $REDDIT_SUBREDDIT = 'SUBREDDIT';
 $LEVEL_PRICES = ['Basic' => 'Free', 'Bronze' => 340, 'Silver' => 520, 'Gold' => 875];
+$LEVEL_PRICES_TAXED = ['Basic' => 'Free', 'Bronze' => 363.80, 'Silver' => 556.40, 'Gold' => 936.25];
 
-// Error Messages
+// Error messages
 $ERROR_MESSAGE['default'] = 'There\'s a bit of a problem <i class=\'fa fa-frown-o\'></i>';
 $ERROR_MESSAGE['signed_out'] = 'You\'ve been signed out. Please sign in again to continue.';
 $ERROR_MESSAGE['not_signed_in'] = 'You\'re not signed in. To view your account, please register or sign in on the <a href=\'/\'>home page</a>.';

@@ -6,7 +6,7 @@ if ($signed_in)
 	$account_company = 'Your company';
 	$account_address = 'Your address';
 
-	$stmt = $db->prepare('SELECT level, name, company, address FROM accounts WHERE session_id=:session_id LIMIT 1');
+	$stmt = $db->prepare('SELECT name, company, address FROM accounts WHERE session_id=:session_id LIMIT 1');
 	$stmt->execute(array(
 		':session_id'=>$account_session_id
 	));
@@ -65,14 +65,39 @@ if ($signed_in)
 
 	$profile_valid = $account_name !== 'Your name' && $account_company !== 'Your company' && $account_address !== 'Your address';
 
-	if (isset($_POST['level']))
+	if (isset($_POST['level']) && $_POST['level'] !== $account_level)
 	{	if (!$profile_valid && !$error)
 		{	$_SESSION['error'] = 'profile_incomplete';
 
 			reload();
 		}
-		else
+		else if ($profile_valid && !$error)
 		{
+			$account_level = $_POST['level'];
+
+			$stmt = $db->prepare('UPDATE accounts SET level=:level WHERE session_id=:session_id');
+			$stmt->execute(array(
+				':level'=>$account_level,
+				':session_id'=>$account_session_id
+			));
+
+			require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_LOCATION;
+
+			$sendgrid = new SendGrid($SENDGRID_USERNAME, $SENDGRID_PASSWORD);
+
+			$email = new SendGrid\Email();
+			$email->
+				addTo($account_email)->
+				setFrom($EMAIL_OUTBOUND)->
+				setFromName('FITspiration')->
+				setSubject('Your FITspiration account has been updated!');
+
+			$email_invoice = new SendGrid\Email();
+			$email_invoice->
+				addTo($EMAIL_INVOICE_COPY)->
+				setFrom($EMAIL_OUTBOUND)->
+				setFromName('FITspiration')->
+				setSubject('A FITspiration account has been updated.');
 ?>
 
 		<a id='updated'></a>
@@ -81,22 +106,40 @@ if ($signed_in)
 			<p>Your account has been updated!</p>
 
 <?php
-			if ($_POST['level'] !== 'Basic')
+			if ($account_level !== 'Basic')
 			{
+				$email->
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>Your FITspiration account has been updated!</h1><p>Thank you for updating your account! Below is a summary of your purchase. Please use your Virtual Enterprises International bank account to send a payment of \$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . " to FITspiration as soon as possible. Thank you!</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES[$_POST['level']]) . "</p><p><strong>Total (7% tax): </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . "</p></strong></div>");
+
+				$email_invoice->
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>A FITspiration account has been updated.</h1><p>Below is a summary of the purchase.</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES[$_POST['level']]) . "</p><p><strong>Total (7% tax): </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . "</p></strong></div>");
 ?>
 
-			<p>If you haven't already, please use your Virtual Enterprises International bank account to send a payment of $<?php echo $LEVEL_PRICES[$_POST['level']] ?>.00 to FITspiration. Please check your email inbox for a receipt!</p>
+			<div class='alert alert-success' role='alert'>
+				<p>If you haven't already, please use your Virtual Enterprises International bank account to send a payment of $<?php echo sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) ?> to FITspiration. Please check your email inbox for a receipt!</p>
+			</div>
 
 <?php
 			}
 			else
 			{
+				$email->
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>Your FITspiration account has been updated!</h1><p>Your account has been updated and set to Basic level. This is free, and no action is required on your part. Below is a summary of your order, and if this was a mistake, please reply to this email. Thank you!</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Total: </strong>Free</p></div>");
+
+				$email_invoice->
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>A FITspiration account has been updated.</h1><p>Below is a summary of the order.</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Total: </strong>Free</p></div>");
 ?>
 
-			<p>Your account has been set to basic. Please note that if you wish to upgrade your account, you must pay the full upgrade price.</p>
+			<div class='alert alert-success' role='alert'>
+				<p>Your account has been set to basic. Please note that if you wish to upgrade your account, you must pay the full upgrade price.</p>
+			</div>
 
 <?php
 			}
+
+			$sendgrid->send($email);
+
+			$sendgrid->send($email_invoice);
 ?>
 
 			<hr>
@@ -157,7 +200,7 @@ if ($signed_in)
 		<a id='levels'></a>
 		<div class='container row text-center'>
 			<h1>Levels <i class='fa fa-bar-chart'></i></h1>
-			<p>Get ready for your new lifestyle with FITspiration! Once you select a level, find the price listed next to the name and use your Virtual Enterprises International bank account to send a payment to FITspiration. After that, your account will be updated and you'll be ready to use your account to its full potential!</p>
+			<p>Get ready for your new lifestyle with FITspiration! Update your account level and start your journey to find a new max.</p>
 		</div>
 		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-3'>

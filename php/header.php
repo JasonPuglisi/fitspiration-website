@@ -36,14 +36,15 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/logout.php';
 $signed_in = false;
 
 if (isset($_COOKIE['session']))
-{	$stmt = $db->prepare('SELECT level, session_id, session_ip, session_user_agent FROM accounts WHERE session_id=:session_id LIMIT 1');
+{	$stmt = $db->prepare('SELECT email, level, session_id, session_ip, session_user_agent FROM accounts WHERE session_id=:session_id LIMIT 1');
 	$stmt->execute(array(
 		':session_id'=>$_COOKIE['session']
 	));
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	if ($results)
-	{	$account_level = $results[0]['level'];
+	{	$account_email = $results[0]['email'];
+		$account_level = $results[0]['level'];
 		$account_session_id = $results[0]['session_id'];
 		$account_session_ip = $results[0]['session_ip'];
 		$account_session_user_agent = $results[0]['session_user_agent'];
