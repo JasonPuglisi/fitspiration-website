@@ -38,33 +38,104 @@ if ($signed_in)
 
 <?php
 		}
+?>
+
+				<br>
+				<p><a class='btn btn-default' href='articles'>View all</a></p>
+
+<?php
 	}
 	else
 	{
 ?>
 
-				<h3><?php echo $ERROR_MESSAGE['no_articles']; ?></h3>
+				<br>
+				<p><?php echo $ERROR_MESSAGE['no_articles'] ?></p>
 
 <?php
 	}
 ?>
 
-				<br>
-				<p><a class='btn btn-default' href='articles'>View all</a></p>
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
 				<h2>Recent workouts</h2>
+
+<?php
+	$stmt = $db->prepare('SELECT id, level, title, date FROM workouts WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	if ($results)
+	{	foreach ($results as $workout)
+		{	$days_ago_string = get_days_ago_string($workout['date']);
+?>
+
+				<br>
+				<h4><a href='article?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
+				<p>Published <?php echo $days_ago_string ?></p>
+
+<?php
+		}
+?>
+
 				<br>
 				<p><a class='btn btn-default' href='workouts'>View all</a></p>
+
+<?php
+	}
+	else
+	{
+?>
+
+				<br>
+				<p><?php echo $ERROR_MESSAGE['no_workouts'] ?></p>
+
+<?php
+	}
+?>
+
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-cutlery fa-5x'></i></h3>
 				<h2>Recent recipes</h2>
+
+<?php
+	$stmt = $db->prepare('SELECT id, level, title, date FROM recipes WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	if ($results)
+	{	foreach ($results as $recipe)
+		{	$days_ago_string = get_days_ago_string($recipe['date']);
+?>
+
+				<br>
+				<h4><a href='article?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
+				<p>Published <?php echo $days_ago_string ?></p>
+
+<?php
+		}
+?>
+
 				<br>
 				<p><a class='btn btn-default' href='recipes'>View all</a></p>
+
+<?php
+	}
+	else
+	{
+?>
+
+				<br>
+				<p><?php echo $ERROR_MESSAGE['no_recipes'] ?></p>
+
+<?php
+	}
+?>
+
 			</div>
 		</div>
 
