@@ -75,6 +75,32 @@ if (isset($_COOKIE['session']))
 		setcookie('session', '', time() - 3600, '/');
 	}
 }
+
+function get_days_ago($date_string)
+{	return date_diff(date_create(date('Y-m-d')), date_create($date_string))->format('%a');
+}
+
+function get_days_ago_string($date_string)
+{	$days_ago = get_days_ago($date_string);
+	$days_ago_string = $days_ago . ' days ago';
+	
+	switch (true)
+	{	case ($days_ago === 0):
+			$days_ago_string = 'today <span class=\'badge\'>New!</span>';
+			break;
+		case ($days_ago === 1):
+			$days_ago_string = 'yesterday';
+			break;
+		case ($days_ago === 7):
+			$days_ago_string = 'a week ago';
+			break;
+		case ($days_ago > 7):
+			$days_ago_string = date('l, F j, Y', strtotime($date_string));
+			break;
+	}
+
+	return $days_ago_string;
+}
 ?>
 
 <!DOCTYPE html>
