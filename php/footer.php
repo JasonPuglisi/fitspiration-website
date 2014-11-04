@@ -6,6 +6,7 @@
 				</div>
 				<div class='col-md-4'>
 					<p><i class='fa fa-envelope'></i> Email: <a href='mailto:fitspiration.nj@veinternational.org'>fitspiration.nj@veinternational.org</a></p>
+					<p><i class='fa fa-twitter'></i> Twitter: <a href='https://www.twitter.com/FITspirationVEI'>@FITspirationVEI</a></p>
 				</div>
 				<div class='col-md-4'>
 					<p><i class='fa fa-institution'></i> For educational purposes only</p>
