@@ -67,7 +67,7 @@ if (!$error)
 ?>
 
 			<br>
-			<h4 class='text-center'><small>Published <?php echo date('l, F j, Y', strtotime($article_date)) ?> in <span class='badge'><?php echo $article_category ?></span>
+			<h4 class='text-center'><small>Published <?php echo date('l, F j, Y', strtotime($article_date)) ?> in <a href='articles?tag=<?php echo $article_category ?>'><span class='badge'><?php echo $article_category ?></span></a>
 
 <?php
 	if (!empty($article_source))
