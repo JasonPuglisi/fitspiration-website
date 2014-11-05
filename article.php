@@ -41,6 +41,7 @@ if (!$error)
 {
 ?>
 
+		<a id='article'></a>
 		<div class='container row text-center'>
 			<h1><?php echo $article_title ?></h1>
 

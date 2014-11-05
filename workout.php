@@ -41,6 +41,7 @@ if (!$error)
 {
 ?>
 
+		<a id='workout'></a>
 		<div class='container row text-center'>
 			<h1><?php echo $workout_title ?></h1>
 
