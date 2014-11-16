@@ -75,6 +75,11 @@ if ($signed_in)
 		{
 			$account_level = $_POST['level'];
 
+			$price_subtotal = $LEVEL_PRICES[$_POST['level']];
+			$price_tax = round($price_subtotal * 0.07, 2);
+			$price_shipping = 8.65;
+			$price_total = $price_subtotal + $price_tax + $price_shipping;
+
 			$stmt = $db->prepare('UPDATE accounts SET level=:level WHERE session_id=:session_id');
 			$stmt->execute(array(
 				':level'=>$account_level,
@@ -109,14 +114,14 @@ if ($signed_in)
 			if ($account_level !== 'Basic')
 			{
 				$email->
-					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>Your FITspiration account has been updated!</h1><p>Thank you for updating your account! Below is a summary of your purchase. Please use your Virtual Enterprises International bank account to send a payment of \$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . " to FITspiration as soon as possible. Thank you!</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES[$_POST['level']]) . "</p><p><strong>Total (7% tax): </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . "</p></strong></div>");
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>Your FITspiration account has been updated!</h1><p>Thank you for updating your account! Below is a summary of your purchase. Please use your Virtual Enterprises International bank account to send a payment of \$" . sprintf('%0.2f', $price_total) . " to FITspiration as soon as possible. Thank you!</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $price_subtotal) . "</p><p><strong>Tax (7%): </strong>\$" . sprintf('%0.2f', $price_tax) . "</p><p><strong>Shipping: </strong>\$" . sprintf('%0.2f', $price_shipping) . "</p><p><strong>Total: </strong>\$" . sprintf('%0.2f', $price_total) . "</p></strong></div>");
 
 				$email_invoice->
-					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>A FITspiration account has been updated.</h1><p>Below is a summary of the purchase.</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES[$_POST['level']]) . "</p><p><strong>Total (7% tax): </strong>\$" . sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) . "</p></strong></div>");
+					setHtml("<div style=\"font-family:'Open Sans','Helvetica Neue',Helvetica,'Trebuchet MS','Verdana',Arial,sans-serif;text-align:center;\"><img src=\"https://www.findanewmax.com/img/logo.png\" width=\"20%\"><h1>A FITspiration account has been updated.</h1><p>Below is a summary of the purchase.</p><br><p><strong>Name: </strong>$account_name</p><p><strong>Company: </strong>$account_company</p><p><strong>Address: </strong>$account_address</p><br><p><strong>Level: </strong>$account_level</strong></p><p><strong>Subtotal: </strong>\$" . sprintf('%0.2f', $price_subtotal) . "</p><p><strong>Tax (7%): </strong>\$" . sprintf('%0.2f', $price_tax) . "</p><p><strong>Shipping: </strong>\$" . sprintf('%0.2f', $price_shipping) . "</p><p><strong>Total: </strong>\$" . sprintf('%0.2f', $price_total) . "</p></strong></div>");
 ?>
 
 			<div class='alert alert-success' role='alert'>
-				<p>If you haven't already, please use your Virtual Enterprises International bank account to send a payment of $<?php echo sprintf('%0.2f', $LEVEL_PRICES_TAXED[$_POST['level']]) ?> to FITspiration. Please check your email inbox for a receipt!</p>
+				<p>If you haven't already, please use your Virtual Enterprises International bank account to send a payment of $<?php echo sprintf('%0.2f', $price_total) ?> to FITspiration. Please check your email inbox for a receipt!</p>
 			</div>
 
 <?php

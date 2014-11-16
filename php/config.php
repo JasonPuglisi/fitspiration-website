@@ -19,7 +19,6 @@ $EMAIL_INVOICE_COPY = 'contact@findanewmax.com';
 // Extra details
 $REDDIT_SUBREDDIT = 'SUBREDDIT';
 $LEVEL_PRICES = ['Basic' => 'Free', 'Bronze' => 340, 'Silver' => 520, 'Gold' => 875];
-$LEVEL_PRICES_TAXED = ['Basic' => 'Free', 'Bronze' => 363.80, 'Silver' => 556.40, 'Gold' => 936.25];
 
 // Error messages
 $ERROR_MESSAGE['default'] = 'There\'s a bit of a problem <i class=\'fa fa-frown-o\'></i>';
