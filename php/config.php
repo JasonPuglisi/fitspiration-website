@@ -14,7 +14,7 @@ $PARSEDOWN_LOCATION = '/parsedown/Parsedown.php';
 $SENDGRID_USERNAME = 'USERNAME';
 $SENDGRID_PASSWORD = 'PASSWORD';
 $EMAIL_OUTBOUND = 'contact@findanewmax.com';
-$EMAIL_INVOICE_COPY = 'contact@findanewmax.com';
+$EMAIL_INVOICE_COPY = 'invoice@findanewmax.com';
 
 // Extra details
 $REDDIT_SUBREDDIT = 'SUBREDDIT';
