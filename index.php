@@ -73,7 +73,7 @@ if ($signed_in)
 ?>
 
 				<br>
-				<h4><a href='article?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
+				<h4><a href='workout?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
 				<p>Published <?php echo $days_ago_string ?></p>
 
 <?php
@@ -113,7 +113,7 @@ if ($signed_in)
 ?>
 
 				<br>
-				<h4><a href='article?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
+				<h4><a href='recipe?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
 				<p>Published <?php echo $days_ago_string ?></p>
 
 <?php
