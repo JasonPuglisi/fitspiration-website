@@ -44,7 +44,7 @@ if (!$error)
 
 			<h4><a href='/article?id=<?php echo $article['id'] ?>'><?php echo $article['title'] ?></a></h4>
 			<p><?php echo $article['description'] ?></p>
-			<p><small>Published <?php echo date('l, F j, Y', strtotime($article['date'])) ?> in <a href='articles?tag=<?php echo $article_category ?>'><span class='badge'><?php echo $article['category'] ?></span></a></small></p>
+			<p><small>Published <?php echo date('l, F j, Y', strtotime($article['date'])) ?> in <a href='articles?tag=<?php echo $article['category'] ?>'><span class='badge'><?php echo $article['category'] ?></span></a></small></p>
 			<br>
 
 <?php

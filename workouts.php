@@ -44,7 +44,7 @@ if (!$error)
 
 			<h4><a href='/workout?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
 			<p><?php echo $workout['description'] ?></p>
-			<p><small>Published <?php echo date('l, F j, Y', strtotime($workout['date'])) ?> in <a href='workouts?tag=<?php echo $workout_category ?>'><span class='badge'><?php echo $workout['category'] ?></span></a></small></p>
+			<p><small>Published <?php echo date('l, F j, Y', strtotime($workout['date'])) ?> in <a href='workouts?tag=<?php echo $workout['category'] ?>'><span class='badge'><?php echo $workout['category'] ?></span></a></small></p>
 			<br>
 
 <?php

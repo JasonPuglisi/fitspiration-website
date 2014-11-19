@@ -44,7 +44,7 @@ if (!$error)
 
 			<h4><a href='/recipe?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
 			<p><?php echo $recipe['description'] ?></p>
-			<p><small>Published <?php echo date('l, F j, Y', strtotime($recipe['date'])) ?> in <a href='recipes?tag=<?php echo $recipe_category ?>'><span class='badge'><?php echo $recipe['category'] ?></span></a></small></p>
+			<p><small>Published <?php echo date('l, F j, Y', strtotime($recipe['date'])) ?> in <a href='recipes?tag=<?php echo $recipe['category'] ?>'><span class='badge'><?php echo $recipe['category'] ?></span></a></small></p>
 			<br>
 
 <?php
