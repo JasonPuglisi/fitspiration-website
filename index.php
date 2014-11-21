@@ -23,7 +23,7 @@ if ($signed_in)
 				<h2>Recent articles</h2>
 
 <?php
-	$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -63,7 +63,7 @@ if ($signed_in)
 				<h2>Recent workouts</h2>
 
 <?php
-	$stmt = $db->prepare('SELECT id, level, title, date FROM workouts WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt = $db->prepare('SELECT id, level, title, date FROM recipes WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -103,7 +103,7 @@ if ($signed_in)
 				<h2>Recent recipes</h2>
 
 <?php
-	$stmt = $db->prepare('SELECT id, level, title, date FROM recipes WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 5');
+	$stmt = $db->prepare('SELECT id, level, title, date FROM workouts WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
