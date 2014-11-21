@@ -35,17 +35,19 @@ if (!$error)
 			<p>Looking for something good to read? You're in the right place. Check out all of the workouts we've ever published, and come back often to stay up to date with our newest material!</p>
 			<br>
 		</div>
-		<div class='container row'>
+		<div class='container row text-center'>
 
 <?php
 	foreach ($results as $workout)
 	{
 ?>
 
-			<h4><a href='/workout?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
-			<p><?php echo $workout['description'] ?></p>
-			<p><small>Published <?php echo date('l, F j, Y', strtotime($workout['date'])) ?> in <a href='workouts?tag=<?php echo $workout['category'] ?>'><span class='badge'><?php echo $workout['category'] ?></span></a></small></p>
-			<br>
+			<div class='col-sm-6'>
+				<h4><a href='/workout?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
+				<p><?php echo $workout['description'] ?></p>
+				<p><small>Published <?php echo date('l, F j, Y', strtotime($workout['date'])) ?> in <a href='workouts?tag=<?php echo $workout['category'] ?>'><span class='badge'><?php echo $workout['category'] ?></span></a></small></p>
+				<br>
+			</div>
 
 <?php
 	}

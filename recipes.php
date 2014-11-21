@@ -35,17 +35,19 @@ if (!$error)
 			<p>Looking for something good to read? You're in the right place. Check out all of the recipes we've ever published, and come back often to stay up to date with our newest material!</p>
 			<br>
 		</div>
-		<div class='container row'>
+		<div class='container row text-center'>
 
 <?php
 	foreach ($results as $recipe)
 	{
 ?>
 
-			<h4><a href='/recipe?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
-			<p><?php echo $recipe['description'] ?></p>
-			<p><small>Published <?php echo date('l, F j, Y', strtotime($recipe['date'])) ?> in <a href='recipes?tag=<?php echo $recipe['category'] ?>'><span class='badge'><?php echo $recipe['category'] ?></span></a></small></p>
-			<br>
+			<div class='col-sm-6'>
+				<h4><a href='/recipe?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
+				<p><?php echo $recipe['description'] ?></p>
+				<p><small>Published <?php echo date('l, F j, Y', strtotime($recipe['date'])) ?> in <a href='recipes?tag=<?php echo $recipe['category'] ?>'><span class='badge'><?php echo $recipe['category'] ?></span></a></small></p>
+				<br>
+			</div>
 
 <?php
 	}
