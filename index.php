@@ -235,24 +235,24 @@ else
 
 		<a id='benefits'></a>
 		<div class='container row text-center'>
-			<h1>Benefits <i class='fa fa-star'></i></h1>
-			<p>What does a FITspiration account help you accomplish? Below are some examples, but the possibilities are endless!</p>
+			<h1>Features <i class='fa fa-star'></i></h1>
+			<p>What's waiting for you once you have your FITspiration account? There's too much to list, but check below for a few things!</p>
 		</div>
 		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-4'>
+				<h3><i class='fa fa-newspaper-o fa-5x'></i></h3>
+				<h3>Written resources</h3>
+				<p>Perfect for a quick read or reference, access articles, recipes, and workouts to help you live healthy every day. Find out the latest tips for staying fit, and discover what you can eat and do to keep your body in top shape.</p>
+			</div>
+			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
-				<h3>Stay active.</h3>
-				<p>Follow effective workout plans, face exciting challenges, and meet outstanding goals. Keep track your activities and share your experiences with others to motivate yourself and those around you.</p>
+				<h3>Workout challenges</h3>
+				<p>Challenge yourself with the latest workout of the day, and find other workouts and exercises you can do to push yourself to stay fit. We'll guide you step by step to help you meet your goals and realize your capabilities.</p>
 			</div>
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-leaf fa-5x'></i></h3>
-				<h3>Stay healthy.</h3>
-				<p>Try nutritious recipes, improve your lifestyle, and find a health plan that fits your needs perfectly. Discuss diets and meals with others, and share what works for you and what doesn't.</p>
-			</div>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-wifi fa-5x'></i></h3>
-				<h3>Stay connected.</h3>
-				<p>Discover new facts every week, learn more about staying fit, and motivate yourself to live a healthy lifestyle. Use your FITspiration Infinity Band or Infinity Watch to get insights into your health and more.</p>
+				<h3><i class='fa fa-video-camera fa-5x'></i></h3>
+				<h3>Demonstration videos</h3>
+				<p>Watch in-depth videos to help yourself through your latest exercise or meal. If pictures are worth a thousand words, these videos are worth a million, and they're perfect for sharing with friends and family to motivate everyone.</p>
 			</div>
 		</div>
 
