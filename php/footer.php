@@ -5,8 +5,11 @@
 					<p><i class='fa fa-copyright'></i> FITspiration 2014</p>
 				</div>
 				<div class='col-md-4'>
-					<p><i class='fa fa-envelope'></i> Email: <a href='mailto:fitspiration.nj@veinternational.org'>fitspiration.nj@veinternational.org</a></p>
-					<p><i class='fa fa-twitter'></i> Twitter: <a href='https://www.twitter.com/FITspirationVEI'>@FITspirationVEI</a></p>
+						<p>
+							<a href='mailto:contact@findanewmax.com' class='icon-link'><i class='fa fa-at fa-2x'></i></a>
+							&nbsp;&nbsp;&nbsp;
+							<a href='https://twitter.com/FITspirationVEI' class='icon-link'><i class='fa fa-twitter fa-2x'></i></a>
+						</p>
 				</div>
 				<div class='col-md-4'>
 					<p><i class='fa fa-institution'></i> For educational purposes only</p>
