@@ -233,55 +233,6 @@ else
 			<hr>
 		</div>
 
-		<a id='plans'></a>
-		<div class='container row text-center'>
-			<h1>Plans <i class='fa fa-bar-chart'></i></h1>
-			<p>Check out what's waiting for you when you activate your account!</p>
-		</div>
-		<div class='container row text-center'>
-			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-basic'>Basic<small> <?php echo $LEVEL_PRICES['Basic'] ?></small></h3>
-				<h4>Access to:</h4>
-				<p>Recipe previews</p>
-				<p>Exercise previews</p>
-				<p>Workout and yoga video previews</p>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-bronze'>Bronze<small> $<?php echo $LEVEL_PRICES['Bronze'] ?>/yr</small></h3>
-				<h4>Access to:</h4>
-				<p>Fitness tracking</p>
-				<p>Quick meal recipes</p>
-				<p>Exercise information</p>
-				<p>Health articles</p>
-				<h4>Accessory:</h4>
-				<p>Infinity Band with pedometer and calorie tracker</p>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-silver'>Silver<small> $<?php echo $LEVEL_PRICES['Silver'] ?>/yr</small></h3>
-				<h4>Access to:</h4>
-				<p>Breakfast, lunch, and dinner recipes</p>
-				<p>Dietary recommendations</p>
-				<p>Exercise plans and challenges</p>
-				<p>Discussion forum</p>
-				<h4>Accessory:</h4>
-				<p>Infinity Band with pedometer and calorie tracker</p>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h3 class='account-gold'>Gold<small> $<?php echo $LEVEL_PRICES['Gold'] ?>/yr</small></h3>
-				<h4>Access to:</h4>
-				<p>Snack and dessert recipes</p>
-				<p>Workout and yoga videos</p>
-				<p>Custom dietary recommendations</p>
-				<p>Custom exercise plans and challenges</p>
-				<p>Custom grocery lists and restaurant recommendations</p>
-				<h4>Accessory:</h4>
-				<p>Infinity Watch with fitness tracking capabilities</p>
-			</div>
-		</div>
-		<div class='container row text-center'>
-			<hr>
-		</div>
-
 		<a id='benefits'></a>
 		<div class='container row text-center'>
 			<h1>Benefits <i class='fa fa-star'></i></h1>
