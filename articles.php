@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 if (isset($_GET['tag']) && !empty($_GET['tag']) && strlen($_GET['tag']) <= 50)
-{	$stmt = $db->prepare('SELECT id, title, date, description, category FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' AND category=:tag ORDER BY id DESC LIMIT 50');
+{	$stmt = $db->prepare('SELECT id, title, date, description, category FROM articles WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND category=:tag ORDER BY id DESC LIMIT 50');
 	$stmt->execute(array(
 		':tag'=>$_GET['tag']
 	));
