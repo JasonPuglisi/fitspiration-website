@@ -171,10 +171,9 @@ if ($signed_in)
 					<button type='submit' class='btn btn-default' id='signout' name='logout' value='true'>Sign out</button>
 				</form>
 				<ul class='nav navbar-nav navbar-right'>
-					<li><a href='/articles'>Articles</a></li>
-					<li><a href='/recipes'>Recipes</a></li>
-					<li><a href='/workouts'>Workouts</a></li>
+					<li><a href='/'>Dashboard</a></li>
 					<li><a href='/account'>Account</a></li>
+					<li><a href='/staff'>Staff</a></li>
 				</ul>
 			</div>
 		</div>
