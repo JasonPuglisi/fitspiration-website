@@ -1,17 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
-?>
 
-		<a id='video'></a>
-		<div class='container row text-center'>
-			<div class='col-md-6 col-md-offset-3'>
-				<div class='embed-responsive embed-responsive-16by9'>
-					<iframe class='embed-responsive-item' src='//player.vimeo.com/video/112841299?byline=0&amp;portrait=0&amp;color=fff' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-
-<?php
 if ($signed_in)
 {
 ?>

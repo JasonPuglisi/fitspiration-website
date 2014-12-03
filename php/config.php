@@ -37,5 +37,8 @@ $ERROR_MESSAGE['workout_not_allowed'] = 'This workout is not available for your 
 $ERROR_MESSAGE['no_recipes'] = 'There are no recipes available yet. Please check back later.';
 $ERROR_MESSAGE['recipe_invalid'] = 'This recipe doesn\'t exist. Make sure your link is correct and try again. If you\'d like, you can <a href=\'/\'>return to the home page</a>.</i>';
 $ERROR_MESSAGE['recipe_not_allowed'] = 'This recipe is not available for your level. If you\'d like, you can <a href=\'account\'>upgrade your account</a> or <a href=\'/\'>return to the home page</a>.';
+$ERROR_MESSAGE['no_videos'] = 'There are no videos available yet. Please check back later.';
+$ERROR_MESSAGE['video_invalid'] = 'This video doesn\'t exist. Make sure your link is correct and try again. If you\'d like, you can <a href=\'/\'>return to the home page</a>.</i>';
+$ERROR_MESSAGE['video_not_allowed'] = 'This video is not available for your level. If you\'d like, you can <a href=\'account\'>upgrade your account</a> or <a href=\'/\'>return to the home page</a>.';
 
 // EOF: config.php

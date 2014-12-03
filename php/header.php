@@ -172,6 +172,7 @@ if ($signed_in)
 				</form>
 				<ul class='nav navbar-nav navbar-right'>
 					<li><a href='/'>Dashboard</a></li>
+					<li><a href='/videos'>Videos</a></li>
 					<li><a href='/account'>Account</a></li>
 					<li><a href='/staff'>Staff</a></li>
 				</ul>
