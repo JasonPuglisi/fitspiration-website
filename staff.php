@@ -5,7 +5,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 		<a id='staff'></a>
 		<div class='container row text-center'>
 			<h1>Meet our staff <i class='fa fa-users'></i></h1>
-			<p>Our staff work hard to give you the personalized experience you need to help you live a healthy and active lifestyle. As a company, we dedicate ourselves fully to helping you create a positive lifestyle that will stay with you forever.</p>
+			<p>Our staff work hard to give you the personalized experience you need to help you live a healthy and active lifestyle.</p>
 			<br>
 		</div>
 		<div class='container row text-center'>

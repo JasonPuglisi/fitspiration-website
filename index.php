@@ -236,7 +236,7 @@ else
 		<a id='benefits'></a>
 		<div class='container row text-center'>
 			<h1>Features <i class='fa fa-star'></i></h1>
-			<p>What's waiting for you once you have your FITspiration account? There's too much to list, but check below for a few things!</p>
+			<p>What's waiting for you once you have your FITspiration account?</p>
 		</div>
 		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-4'>
