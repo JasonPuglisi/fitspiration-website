@@ -9,6 +9,8 @@
 							<a href='mailto:contact@findanewmax.com' class='icon-link'><i class='fa fa-at fa-2x'></i></a>
 							&nbsp;&nbsp;&nbsp;
 							<a href='https://twitter.com/FITspirationVEI' class='icon-link'><i class='fa fa-twitter fa-2x'></i></a>
+							&nbsp;&nbsp;&nbsp;
+							<a href='http://instagram.com/fitspirationvei' class='icon-link'><i class='fa fa-instagram fa-2x'></i></a>
 						</p>
 				</div>
 				<div class='col-md-4'>
