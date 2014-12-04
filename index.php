@@ -140,7 +140,7 @@ if ($signed_in)
 		</div>
 
 <?php
-	if (!isset($_COOKIE['demo']) && array_search('Diamond', $account_levels_inherited) !== false)
+	if (array_search('Diamond', $account_levels_inherited) !== false)
 	{	$reddit_link_source = $REDDIT_SUBREDDIT;
 ?>
 
