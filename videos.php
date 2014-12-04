@@ -38,22 +38,53 @@ if (!$error)
 		<div class='container row text-center'>
 
 <?php
+	$count = 0;
 	foreach ($results as $video)
-	{	if ($video['type'] === 'Vimeo')
+	{	$count++;
+		if ($count <= 1) {
+?>
+
+			<div class='col-md-8 col-md-offset-2'>
+
+<?php
+		}
+		else
 		{
 ?>
 
 			<div class='col-sm-6'>
+
+<?php
+		}
+?>
+
 				<h2><?php echo $video['title'] ?><br><small><?php echo $video['description'] ?></small></h2>
 				<p><small>Published <?php echo date('l, F j, Y', strtotime($video['date'])) ?> in <a href='videos?tag=<?php echo $video['category'] ?>'><span class='badge'><?php echo $video['category'] ?></span></a></small></p>
 				<div class='embed-responsive embed-responsive-16by9'>
-					<iframe class='embed-responsive-item' src='//player.vimeo.com/video/<?php echo $video['link'] ?>?byline=0&amp;portrait=0&amp;color=fff' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<?php
+		if ($video['type'] === 'Vimeo')
+		{
+?>
+
+					<iframe class='embed-responsive-item' src='//player.vimeo.com/video/<?php echo $video['link'] ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=fff' allowfullscreen></iframe>
+
+<?php
+		}
+		else if ($video['type'] === 'YouTube')
+		{
+?>
+
+					<iframe class='embed-responsive-item' src="//www.youtube-nocookie.com/embed/<?php echo $video['link'] ?>?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+
+<?php
+		}
+?>
+
 				</div>
 				<br>
 			</div>
 
 <?php
-		}
 	}
 ?>
 
