@@ -2,14 +2,14 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 if (isset($_GET['tag']) && !empty($_GET['tag']) && strlen($_GET['tag']) <= 50)
-{	$stmt = $db->prepare('SELECT id, title, date, description, category, link, type FROM videos WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND category=:tag ORDER BY id DESC LIMIT 50');
+{	$stmt = $db->prepare('SELECT id, title, date, description, category, link, type FROM videos WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND category=:tag AND type!=\'Disabled\' ORDER BY id DESC LIMIT 50');
 	$stmt->execute(array(
 		':tag'=>$_GET['tag']
 	));
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 else
-{	$stmt = $db->prepare('SELECT id, title, date, description, category, link, type FROM videos WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 50');
+{	$stmt = $db->prepare('SELECT id, title, date, description, category, link, type FROM videos WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND type!=\'Disabled\' ORDER BY id DESC LIMIT 50');
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
