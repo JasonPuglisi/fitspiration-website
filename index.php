@@ -18,12 +18,12 @@ if ($signed_in)
 ?>
 
 		<a id='warning'></a>
-		<div class='container row text-center'>
+		<div class='container row text-center alert alert-danger'>
 			<h1><i class='fa fa-exclamation-triangle fa-2x'></i></h1>
 			<h1>Account Warning</h1>
-			<p>You only have a basic account, so you'll be missing out on articles, recipes, workouts, videos, and more! Please <a href='/account'>upgrade your account</a> to Bronze, Silver, or Gold as soon as possible for the full FITspiration experience! On your account page, you'll be able to upgrade your account and have a receipt sent to your email instantly.</p>
-			<hr>
+			<p>You only have a basic account, so you'll be missing out on articles, recipes, workouts, videos, and more! Please <a class='alert-link' href='/account'>upgrade your account</a> to Bronze, Silver, or Gold as soon as possible for the full FITspiration experience! On your account page, you'll be able to upgrade your account and have a receipt sent to your email instantly.</p>
 		</div>
+		<hr>
 
 <?php
 	}
