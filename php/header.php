@@ -36,7 +36,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/logout.php';
 $signed_in = false;
 
 if (isset($_COOKIE['session']))
-{	$stmt = $db->prepare('SELECT email, level, session_id, session_ip, session_user_agent FROM accounts WHERE session_id=:session_id LIMIT 1');
+{	$stmt = $db->prepare('SELECT email, level, session_id, session_ip, session_user_agent, name, company, address FROM accounts WHERE session_id=:session_id LIMIT 1');
 	$stmt->execute(array(
 		':session_id'=>$_COOKIE['session']
 	));
@@ -48,6 +48,9 @@ if (isset($_COOKIE['session']))
 		$account_session_id = $results[0]['session_id'];
 		$account_session_ip = $results[0]['session_ip'];
 		$account_session_user_agent = $results[0]['session_user_agent'];
+		$account_name = $results[0]['name'];
+		$account_company = $results[0]['company'];
+		$account_address = $results[0]['address'];
 
 		if ($account_session_id === $_COOKIE['session'] && $account_session_ip === $_SERVER['REMOTE_ADDR'] && $account_session_user_agent === $_SERVER['HTTP_USER_AGENT'])
 		{	$signed_in = true;

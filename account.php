@@ -2,29 +2,20 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 if ($signed_in)
-{	$account_name = 'Your name';
-	$account_company = 'Your company';
-	$account_address = 'Your address';
+{	$account_name = $account_name;
+	$account_company = $account_company;
+	$account_address = $account_address;
 
-	$stmt = $db->prepare('SELECT name, company, address FROM accounts WHERE session_id=:session_id LIMIT 1');
-	$stmt->execute(array(
-		':session_id'=>$account_session_id
-	));
-	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	if (!$account_name)
+	{	$account_name = 'Your name';
+	}
 
-	if ($results)
-	{
-		if ($results[0]['name'])
-		{	$account_name = $results[0]['name'];
-		}
+	if (!$account_company)
+	{	$account_company = 'Your company';
+	}
 
-		if ($results[0]['company'])
-		{	$account_company = $results[0]['company'];
-		}
-
-		if ($results[0]['address'])
-		{	$account_address = $results[0]['address'];
-		}
+	if (!$account_address)
+	{	$account_address = 'Your address';
 	}
 
 	if (isset($_POST['name']) && strlen($_POST['name']) >= 1 && strlen($_POST['name']) <= 100)
