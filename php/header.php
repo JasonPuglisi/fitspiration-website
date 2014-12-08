@@ -172,16 +172,21 @@ if ($signed_in)
 				<span class='icon-bar'></span>
 				<span class='icon-bar'></span>
 			</button>
-			<a class='navbar-brand' href='/'>FITspiration</a>
+			<div class='navbar-header'>
+				<a class='navbar-brand' href='/'><img src='/img/logo.svg' height='22px' alt='Logo'></a>
+				<a class='navbar-brand' href='/'>FITspiration</a>
+			</div>
 			<div class='collapse navbar-collapse' id='navbar-collapse'>
 				<form class='navbar-form navbar-right' method='post' role='form'>
 					<button type='submit' class='btn btn-default' id='signout' name='logout' value='true'>Sign out</button>
 				</form>
 				<ul class='nav navbar-nav navbar-right'>
-					<li><a href='/'>Dashboard</a></li>
-					<li><a href='/videos'>Videos</a></li>
-					<li><a href='/account'>Account</a></li>
-					<li><a href='/staff'>Staff</a></li>
+					<li><a href='/'><i class='fa fa-dashboard'></i> Dashboard</a></li>
+					<li><a href='/articles'><i class='fa fa-newspaper-o'></i> Articles</a></li>
+					<li><a href='/recipes'><i class='fa fa-cutlery'></i> Recipes</a></li>
+					<li><a href='/workouts'><i class='fa fa-child'></i> Workouts</a></li>
+					<li><a href='/videos'><i class='fa fa-video-camera'></i> Videos</a></li>
+					<li><a href='/account'><i class='fa fa-user'></i> Account</a></li>
 				</ul>
 			</div>
 		</div>
@@ -201,14 +206,14 @@ else
 				<span class='icon-bar'></span>
 				<span class='icon-bar'></span>
 			</button>
-			<a class='navbar-brand' href='/'>FITspiration</a>
+			<div class='navbar-header'>
+				<a class='navbar-brand' href='/'><img src='/img/logo.svg' height='22px' alt='Logo'></a>
+				<a class='navbar-brand' href='/'>FITspiration</a>
+			</div>
 			<div class='collapse navbar-collapse' id='navbar-collapse'>
 				<form class='navbar-form navbar-right' action='/#body' method='post' role='form'>
 					<button type='submit' class='btn btn-default'>Register or sign in</button>
 				</form>
-				<ul class='nav navbar-nav navbar-right'>
-					<li><a href='/staff'>Staff</a></li>
-				</ul>
 			</div>
 		</div>
 	</nav>
