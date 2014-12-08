@@ -5,16 +5,20 @@ if ($signed_in)
 {
 ?>
 
-		<a id='dashboard'></a>
+		<a id='welcome'></a>
 		<div class='container row text-center'>
-			<h1>Dashboard<br><small>Your account is <span class='account-<?php echo strtolower($account_level) ?>'><?php echo $account_level ?> <i class='fa fa-trophy'></i></span></small></h1>
-			<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
+			<h1>Welcome<?php if ($account_name) echo ', ', $account_name ?>!</h1>
 			<hr>
 		</div>
 
 <?php
+	$account_progress = 100;
+	$account_progress_steps = [];
+
 	if ($account_level === 'Basic')
 	{
+		$account_progress -= 25;
+		$account_progress_steps[] = '<a href=\'/account#account\'>Upgrade to a higher level for the full experience</a>';
 ?>
 
 		<a id='warning'></a>
@@ -27,38 +31,179 @@ if ($signed_in)
 
 <?php
 	}
+
+	if (!$account_name)
+	{	$account_progress -= 25;
+		$account_progress_steps[] = '<a href=\'/account\'>Tell us your name so we can greet you more easily</a>';
+	}
+
+	if (!$account_company)
+	{	$account_progress -= 25;
+		$account_progress_steps[] = '<a href=\'/account\'>Let us know where you work so we can learn about your company</a>';
+	}
+
+	if (!$account_address)
+	{	$account_progress -= 25;
+		$account_progress_steps[] = '<a href=\'/account\'>Save your address so we can ship your order straight to you</a>';
+	}
+
+	$account_progress_steps[] = 'Check out our latest <a href=\'/articles\'>articles</a>, <a href=\'/recipes\'>recipes</a>, <a href=\'/workouts\'>workouts</a>, and <a href=\'/videos\'>videos</a>'
 ?>
 
-		<a id='resources'></a>
 		<div class='container row text-center'>
-			<h1>Resources <i class='fa fa-compass'></i></h1>
-			<p>Check out our most recent articles, workouts, and recipes below. Be sure to visit often so you don't miss anything!</p>
-		</div>
-		<div class='container row text-center'>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-newspaper-o fa-5x'></i></h3>
-				<h2>Recent articles</h2>
+			<a id='account'></a>
+			<div class='col-md-6'>
+				<h2>Your account</h2>
+				<h3 class='account-<?php echo strtolower($account_level) ?>'><i class='fa fa-trophy'></i> <?php echo $account_level ?></h3>
+				<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
+				<br>
+				<div class='progress'>
+					<div class='progress-bar progress-bar-info progress-bar-striped' role='progressbar' aria-valuenow='<?php echo $account_progress ?>' aria-valuemix='0' aria-valuemax='100' style='width: <?php echo $account_progress ?>%'></div>
+				</div>
+				<h3>Your account is <?php echo $account_progress ?>% complete!</h3>
+				<hr>
+				<h4>What's next?</h4>
 
 <?php
+	foreach ($account_progress_steps as $account_progress_step)
+	{
+?>
+
+				<p><i class='fa fa-check'></i> <?php echo $account_progress_step ?></p>
+
+<?php
+	}
+?>
+
+			</div>
+
+<?php
+	$stmt = $db->prepare('SELECT id, title, date, description, category, link, type FROM videos WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND type!=\'Disabled\' ORDER BY id DESC LIMIT 1');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$videos = $results;
+
 	$stmt = $db->prepare('SELECT id, level, title, date FROM articles WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	if ($results)
-	{	foreach ($results as $article)
-		{	$days_ago_string = get_days_ago_string($article['date']);
+	$articles = $results;
+
+	$stmt = $db->prepare('SELECT id, level, title, date FROM recipes WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$recipes = $results;
+
+	$stmt = $db->prepare('SELECT id, level, title, date FROM workouts WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$workouts = $results;
+
+	if ($videos)
+	{
 ?>
 
-				<br>
-				<h4><a href='article?id=<?php echo $article['id'] ?>'><?php echo $article['title'] ?></a></h4>
-				<p>Published <?php echo $days_ago_string ?></p>
+			<a id='recent'></a>
+			<div class='col-md-6'>
+				<h2>Most recent</h2>
+				<div class='row'>
+					<div class='col-xs-8 col-xs-offset-2'>
+						<div class='embed-responsive embed-responsive-16by9'>
+
+<?php
+		if ($videos[0]['type'] === 'Vimeo')
+		{
+?>
+
+							<iframe class='embed-responsive-item' src='//player.vimeo.com/video/<?php echo $videos[0]['link'] ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=fff' allowfullscreen></iframe>
+
+<?php
+		}
+		else if ($videos[0]['type'] === 'YouTube')
+		{
+?>
+
+							<iframe class='embed-responsive-item' src='//www.youtube-nocookie.com/embed/<?php echo $videos[0]['link'] ?>?rel=0&amp;showinfo=0' allowfullscreen></iframe>
 
 <?php
 		}
 ?>
 
+						</div>
+					</div>
+				</div>
+				<h3><a href='/videos'><i class='fa fa-video-camera'></i> <?php echo $videos[0]['title'] ?></a></h3>
+
+<?php
+	}
+
+	if ($articles || $recipes || $workouts)
+	{
+?>
+
+				<hr>
+
+<?php
+		if ($articles)
+		{
+?>
+
+				<h4><a href='article?id=<?php echo $articles[0]['id'] ?>'><i class='fa fa-newspaper-o'></i> <?php echo $articles[0]['title'] ?></a></h4>
+
+<?php
+		}
+		if ($recipes)
+		{
+?>
+
+				<h4><a href='recipe?id=<?php echo $recipes[0]['id'] ?>'><i class='fa fa-cutlery'></i> <?php echo $recipes[0]['title'] ?></a></h4>
+
+<?php
+		}
+		if ($workouts)
+		{
+?>
+
+				<h4><a href='workout?id=<?php echo $workouts[0]['id'] ?>'><i class='fa fa-child'></i> <?php echo $workouts[0]['title'] ?></a></h4>
+
+<?php
+		}
+	}
+?>
+
+			</div>
+		</div>
+		<hr>
+
+		<a id='resources'></a>
+		<div class='container row text-center'>
+			<h1>Need something to read?</h2>
+		</div>
+		<div class='container row text-center'>
+			<div class='col-sm-6 col-md-4'>
+				<h3><i class='fa fa-newspaper-o fa-3x'></i></h3>
+				<h2>Articles</h2>
+				<hr>
+
+<?php
+	if ($articles)
+	{	foreach ($articles as $article)
+		{	$days_ago_string = get_days_ago_string($article['date']);
+?>
+
+				<h4><a href='article?id=<?php echo $article['id'] ?>'><?php echo $article['title'] ?></a></h4>
+				<p>Published <?php echo $days_ago_string ?></p>
 				<br>
+
+<?php
+		}
+?>
+
 				<p><a class='btn btn-default' href='articles'>View all</a></p>
+				<br>
 
 <?php
 	}
@@ -76,29 +221,26 @@ if ($signed_in)
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-cutlery fa-5x'></i></h3>
-				<h2>Recent recipes</h2>
+				<h3><i class='fa fa-cutlery fa-3x'></i></h3>
+				<h2>Recipes</h2>
+				<hr>
 
 <?php
-	$stmt = $db->prepare('SELECT id, level, title, date FROM recipes WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
-	$stmt->execute();
-	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-	if ($results)
-	{	foreach ($results as $recipe)
+	if ($recipes)
+	{	foreach ($recipes as $recipe)
 		{	$days_ago_string = get_days_ago_string($recipe['date']);
 ?>
 
-				<br>
 				<h4><a href='recipe?id=<?php echo $recipe['id'] ?>'><?php echo $recipe['title'] ?></a></h4>
 				<p>Published <?php echo $days_ago_string ?></p>
+				<br>
 
 <?php
 		}
 ?>
 
-				<br>
 				<p><a class='btn btn-default' href='recipes'>View all</a></p>
+				<br>
 
 <?php
 	}
@@ -116,29 +258,26 @@ if ($signed_in)
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-child fa-5x'></i></h3>
-				<h2>Recent workouts</h2>
+				<h3><i class='fa fa-child fa-3x'></i></h3>
+				<h2>Workouts</h2>
+				<hr>
 
 <?php
-	$stmt = $db->prepare('SELECT id, level, title, date FROM workouts WHERE level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\' ORDER BY id DESC LIMIT 3');
-	$stmt->execute();
-	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-	if ($results)
-	{	foreach ($results as $workout)
+	if ($workouts)
+	{	foreach ($workouts as $workout)
 		{	$days_ago_string = get_days_ago_string($workout['date']);
 ?>
 
-				<br>
 				<h4><a href='workout?id=<?php echo $workout['id'] ?>'><?php echo $workout['title'] ?></a></h4>
 				<p>Published <?php echo $days_ago_string ?></p>
+				<br>
 
 <?php
 		}
 ?>
 
-				<br>
 				<p><a class='btn btn-default' href='workouts'>View all</a></p>
+				<br>
 
 <?php
 	}
@@ -221,14 +360,12 @@ else
 		<a id='fitspiration'></a>
 		<div class='container row text-center'>
 			<h1>FITspiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
-			<hr>
 		</div>
 
 		<a id='start'></a>
 		<div class='container row text-center'>
 			<h1>Get started <i class='fa fa-flag-checkered'></i></h1>
 			<p>On your mark, get set, go! Let's find a healthy lifestyle that fits you.</p>
-			<br>
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
 					<label class='sr-only' for='emailInput'>Email</label>
@@ -252,7 +389,7 @@ else
 
 		<a id='benefits'></a>
 		<div class='container row text-center'>
-			<h1>Features <i class='fa fa-star'></i></h1>
+			<h1>Benefits <i class='fa fa-star'></i></h1>
 			<p>What's waiting for you once you have your FITspiration account?</p>
 		</div>
 		<div class='container row text-center'>
@@ -260,18 +397,24 @@ else
 				<h3><i class='fa fa-newspaper-o fa-5x'></i></h3>
 				<h3>Written resources</h3>
 				<p>Perfect for a quick read or reference, access articles, recipes, and workouts to help you live healthy every day. Find out the latest tips for staying fit, and discover what you can eat and do to keep your body in top shape.</p>
+				<br>
 			</div>
 			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-child fa-5x'></i></h3>
 				<h3>Workout challenges</h3>
 				<p>Challenge yourself with the latest workout of the day, and find other workouts and exercises you can do to push yourself to stay fit. We'll guide you step by step to help you meet your goals and realize your capabilities.</p>
+				<br>
 			</div>
 			<div class='col-sm-6 col-md-4'>
 				<h3><i class='fa fa-video-camera fa-5x'></i></h3>
 				<h3>Demonstration videos</h3>
 				<p>Watch in-depth videos to help yourself through your latest exercise or meal. If pictures are worth a thousand words, these videos are worth a million, and they're perfect for sharing with friends and family to motivate everyone.</p>
+				<br>
 			</div>
 		</div>
+
+	</div>
+</div>
 
 <?php
 }
