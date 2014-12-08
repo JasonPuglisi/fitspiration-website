@@ -74,7 +74,7 @@ if (!$error)
 		{
 ?>
 
-					<iframe class='embed-responsive-item' src="//www.youtube-nocookie.com/embed/<?php echo $video['link'] ?>?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+					<iframe class='embed-responsive-item' src='//www.youtube-nocookie.com/embed/<?php echo $video['link'] ?>?rel=0&amp;showinfo=0' allowfullscreen></iframe>
 
 <?php
 		}
