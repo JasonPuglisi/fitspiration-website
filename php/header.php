@@ -223,14 +223,16 @@ else
 ?>
 
 	<div class='jumbotron'>
-		<div class='container text-center'>
+		<div class='row text-center'>
 			<img class='img-logo' src='/img/logo.svg' width='20%' alt='Logo'>
+		</div>
+		<div class='row text-center'>
 
 <?php
 if (!$signed_in)
 {
 ?>
-			<br>
+
 			<h1><span class='title'>FITspiration</span></h1>
 			<h2><span class='title'>Find a new max</span></h2>
 
