@@ -178,7 +178,7 @@ if ($signed_in)
 			</div>
 			<div class='collapse navbar-collapse' id='navbar-collapse'>
 				<form class='navbar-form navbar-right' method='post' role='form'>
-					<button type='submit' class='btn btn-default' id='signout' name='logout' value='true'>Sign out</button>
+					<button type='submit' class='btn btn-default' id='signout' name='logout' value='true'><i class='fa fa-sign-out'></i> Sign out</button>
 				</form>
 				<ul class='nav navbar-nav navbar-right'>
 					<li><a href='/'><i class='fa fa-dashboard'></i> Dashboard</a></li>
@@ -211,8 +211,8 @@ else
 				<a class='navbar-brand' href='/'>FITspiration</a>
 			</div>
 			<div class='collapse navbar-collapse' id='navbar-collapse'>
-				<form class='navbar-form navbar-right' action='/#body' method='post' role='form'>
-					<button type='submit' class='btn btn-default'>Register or sign in</button>
+				<form class='navbar-form navbar-right' action='/#login' method='post' role='form'>
+					<button type='submit' class='btn btn-default'><i class='fa fa-sign-in'></i> Register or sign in</button>
 				</form>
 			</div>
 		</div>
@@ -225,11 +225,24 @@ else
 	<div class='jumbotron'>
 		<div class='container text-center'>
 			<img class='img-logo' src='/img/logo.svg' width='20%' alt='Logo'>
+
+<?php
+if (!$signed_in)
+{
+?>
+			<br>
+			<h1><span class='title'>FITspiration</span></h1>
+			<h2><span class='title'>Find a new max</span></h2>
+
+<?php
+}
+?>
+
 		</div>
 	</div>
 	<br>
 
-	<a id='body'></a>
+	<a id='page'></a>
 	<div class='container'>
 
 <?php

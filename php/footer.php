@@ -1,6 +1,7 @@
 		<br>
 	</div>
 
+	<a id='footer'></a>
 	<div class='section-gray'>
 		<div class='container'>
 			<br>
@@ -20,9 +21,9 @@
 						<br>
 					</div>
 					<div class='col-md-4'>
-						<p><a href='/staff'><i class='fa fa-user'></i> Learn about our staff</a></p>
-						<p><a href='https://github.com/JasonPuglisi/fitspiration-website'><i class='fa fa-github'></i> Check out our source code</a></p>
-						<p><a href='/'><i class='fa fa-home'></i> Go to our home page</a></p>
+						<p><a href='/staff'><i class='fa fa-user'></i> Meet our staff</a></p>
+						<p><a href='https://github.com/JasonPuglisi/fitspiration-website'><i class='fa fa-github'></i> View our source code</a></p>
+						<p><a href='/'><i class='fa fa-home'></i> Visit our home page</a></p>
 						<br>
 					</div>
 				</div>

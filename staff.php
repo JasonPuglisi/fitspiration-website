@@ -4,90 +4,120 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 		<a id='staff'></a>
 		<div class='container row text-center'>
-			<h1>Meet our staff <i class='fa fa-users'></i></h1>
-			<p>Our staff work hard to give you the personalized experience you need to help you live a healthy and active lifestyle.</p>
+			<h1><i class='fa fa-users'></i> Meet our staff</h1>
+			<p>We work hard to give you the personalized experience you need to live a healthy and active life.</p>
 			<br>
 		</div>
-		<div class='container row text-center'>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+
+		<a id='executive-board'></a>
+		<div class='container row'>
+			<h2><i class='fa fa-briefcase'></i> Executive Board</h2>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/michaelScott.png' alt='Michael Scott'>
-				<h4><strong>Michael</strong><br>Scott<br><small>CEO</small></h4>
+				<h4>Michael Scott<br><small>Chief Executive Officer</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/seanCook.png' alt='Sean Cook'>
-				<h4><strong>Sean</strong><br>Cook<br><small>CIO</small></h4>
+				<h4>Sean Cook<br><small>Chief Information Officer</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/dianeGray.png' alt='Diane Gray'>
-				<h4><strong>Diane</strong><br>Gray<br><small>COO</small></h4>
+				<h4>Diane Gray<br><small>Chief Operating Officer</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/carolynEvans.png' alt='Carolyn Evans'>
-				<h4><strong>Carolyn</strong><br>Evans<br><small>CFO</small></h4>
+				<h4>Carolyn Evans<br><small>Chief Financial Officer</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block visible-sm-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/saraDiaz.png' alt='Sara Diaz'>
-				<h4><strong>Sara</strong><br>Diaz<br><small>CMO</small></h4>
+				<h4>Sara Diaz<br><small>Chief Marketing Officer</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+		</div>
+
+		<a id='information-technology'></a>
+		<div class='container row'>
+			<h2><i class='fa fa-keyboard-o'></i> Information Technology</h2>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/eugeneCampbell.png' alt='Eugene Campbell'>
-				<h4><strong>Eugene</strong><br>Campbell<br><small>IT<br>Manager</small></h4>
+				<h4>Eugene Campbell<br><small>Information Technology Manager</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
-				<img class='img-responsive img-circle' src='/img/staff/joanWalker.png' alt='Joan Walker'>
-				<h4><strong>Joan</strong><br>Walker<br><small>HR<br>Manager</small></h4>
-			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
-				<img class='img-responsive img-circle' src='/img/staff/christopherRogers.png' alt='Christopher Rogers'>
-				<h4><strong>Christopher</strong><br>Rogers<br><small>Accounting<br>Manager</small></h4>
-			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
-				<img class='img-responsive img-circle' src='/img/staff/michelleCarter.png' alt='Michelle Carter'>
-				<h4><strong>Michelle</strong><br>Carter<br><small>Marketing<br>Manager</small></h4>
-			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/joshuaBryant.png' alt='Joshua Bryant'>
-				<h4><strong>Joshua</strong><br>Bryant<br><small>IT<br>Analyst</small></h4>
+				<h4>Joshua Bryant<br><small>Information Technology Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/stephanieJohnson.png' alt='Stephanie Johnson'>
-				<h4><strong>Stephanie</strong><br>Johnson<br><small>IT<br>Analyst</small></h4>
+				<h4>Stephanie Johnson<br><small>Information Technology Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+		</div>
+
+		<a id='human-resources'></a>
+		<div class='container row'>
+			<h2><i class='fa fa-smile-o'></i> Human Resources</h2>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
+				<img class='img-responsive img-circle' src='/img/staff/joanWalker.png' alt='Joan Walker'>
+				<h4>Joan Walker<br><small>Human Resources Manager</small></h4>
+			</div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/joseScott.png' alt='Jose Scott'>
-				<h4><strong>Jose</strong><br>Scott<br><small>HR<br>Analyst</small></h4>
+				<h4>Jose Scott<br><small>Human Resources Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/cherylRoberts.png' alt='Cheryl Roberts'>
-				<h4><strong>Cheryl</strong><br>Roberts<br><small>HR<br>Analyst</small></h4>
+				<h4>Cheryl Roberts<br><small>Human Resources Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+		</div>
+
+		<a id='accounting'></a>
+		<div class='container row'>
+			<h2><i class='fa fa-line-chart'></i> Accounting</h2>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
+				<img class='img-responsive img-circle' src='/img/staff/christopherRogers.png' alt='Christopher Rogers'>
+				<h4>Christopher Rogers<br><small>Accounting Manager</small></h4>
+			</div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/kathrynLopez.png' alt='Kathryn Lopez'>
-				<h4><strong>Kathryn</strong><br>Lopez<br><small>Accounting<br>Analyst</small></h4>
+				<h4>Kathryn Lopez<br><small>Accounting Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/annaGarcia.png' alt='Anna Garcia'>
-				<h4><strong>Anna</strong><br>Garcia<br><small>Accounting<br>Analyst</small></h4>
+				<h4>Anna Garcia<br><small>Accounting Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/helenRobinson.png' alt='Helen Robinson'>
-				<h4><strong>Helen</strong><br>Robinson<br><small>Accounting<br>Analyst</small></h4>
+				<h4>Helen Robinson<br><small>Accounting Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+		</div>
+
+		<a id='marketing'></a>
+		<div class='container row'>
+			<h2><i class='fa fa-bullhorn'></i> Marketing</h2>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
+				<img class='img-responsive img-circle' src='/img/staff/michelleCarter.png' alt='Michelle Carter'>
+				<h4>Michelle Carter<br><small>Marketing Manager</small></h4>
+			</div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/pamelaNelson.png' alt='Pamela Nelson'>
-				<h4><strong>Pamela</strong><br>Nelson<br><small>Marketing<br>Analyst</small></h4>
+				<h4>Pamela Nelson<br><small>Marketing Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/judyPrice.png' alt='Judy Price'>
-				<h4><strong>Judy</strong><br>Price<br><small>Marketing<br>Analyst</small></h4>
+				<h4>Judy Price<br><small>Marketing Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/davidLee.png' alt='David Lee'>
-				<h4><strong>David</strong><br>Lee<br><small>Marketing<br>Analyst</small></h4>
+				<h4>David Lee<br><small>Marketing Analyst</small></h4>
 			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2'>
+			<div class='clearfix visible-xs-block visible-sm-block'></div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/russellJohnson.png' alt='Russell Johnson'>
-				<h4><strong>Russell</strong><br>Johnson<br><small>Marketing<br>Analyst</small></h4>
+				<h4>Russell Johnson<br><small>Marketing Analyst</small></h4>
 			</div>
 		</div>
 

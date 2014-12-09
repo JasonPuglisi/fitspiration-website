@@ -7,7 +7,7 @@ if ($signed_in)
 
 		<a id='welcome'></a>
 		<div class='container row text-center'>
-			<h1>Welcome<?php if ($account_name) echo ', ', $account_name ?>!</h1>
+			<h1><i class='fa fa-dashboard'></i> Welcome<?php if ($account_name) echo ', ', $account_name ?>!</h1>
 			<hr>
 		</div>
 
@@ -53,8 +53,8 @@ if ($signed_in)
 		<div class='container row text-center'>
 			<a id='account'></a>
 			<div class='col-md-6'>
-				<h2>Your account</h2>
-				<h3 class='account-<?php echo strtolower($account_level) ?>'><i class='fa fa-trophy'></i> <?php echo $account_level ?></h3>
+				<h2><i class='fa fa-user'></i> Your account</h2>
+				<h3 class='account-<?php echo strtolower($account_level) ?>'><?php echo $account_level ?></h3>
 				<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
 				<br>
 				<div class='progress'>
@@ -108,7 +108,7 @@ if ($signed_in)
 
 			<a id='recent'></a>
 			<div class='col-md-6'>
-				<h2>Most recent</h2>
+				<h2><i class='fa fa-refresh'></i> Most recent</h2>
 				<div class='row'>
 					<div class='col-xs-8 col-xs-offset-2'>
 						<div class='embed-responsive embed-responsive-16by9'>
@@ -135,7 +135,7 @@ if ($signed_in)
 						</div>
 					</div>
 				</div>
-				<h3><a href='/videos'><i class='fa fa-video-camera'></i> <?php echo $videos[0]['title'] ?></a></h3>
+				<h3><a href='/videos'><?php echo $videos[0]['title'] ?></a></h3>
 
 <?php
 	}
@@ -151,7 +151,7 @@ if ($signed_in)
 		{
 ?>
 
-				<h4><a href='article?id=<?php echo $articles[0]['id'] ?>'><i class='fa fa-newspaper-o'></i> <?php echo $articles[0]['title'] ?></a></h4>
+				<h4><a href='article?id=<?php echo $articles[0]['id'] ?>'>• <?php echo $articles[0]['title'] ?></a></h4>
 
 <?php
 		}
@@ -159,7 +159,7 @@ if ($signed_in)
 		{
 ?>
 
-				<h4><a href='recipe?id=<?php echo $recipes[0]['id'] ?>'><i class='fa fa-cutlery'></i> <?php echo $recipes[0]['title'] ?></a></h4>
+				<h4><a href='recipe?id=<?php echo $recipes[0]['id'] ?>'>• <?php echo $recipes[0]['title'] ?></a></h4>
 
 <?php
 		}
@@ -167,7 +167,7 @@ if ($signed_in)
 		{
 ?>
 
-				<h4><a href='workout?id=<?php echo $workouts[0]['id'] ?>'><i class='fa fa-child'></i> <?php echo $workouts[0]['title'] ?></a></h4>
+				<h4><a href='workout?id=<?php echo $workouts[0]['id'] ?>'>• <?php echo $workouts[0]['title'] ?></a></h4>
 
 <?php
 		}
@@ -180,12 +180,12 @@ if ($signed_in)
 
 		<a id='resources'></a>
 		<div class='container row text-center'>
-			<h1>Need something to read?</h2>
+			<h1><i class='fa fa-bookmark'></i> Need something to read?</h2>
+			<br>
 		</div>
 		<div class='container row text-center'>
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-newspaper-o fa-3x'></i></h3>
-				<h2>Articles</h2>
+				<h2><i class='fa fa-newspaper-o'></i> Articles</h2>
 				<hr>
 
 <?php
@@ -221,8 +221,7 @@ if ($signed_in)
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-cutlery fa-3x'></i></h3>
-				<h2>Recipes</h2>
+				<h2><i class='fa fa-cutlery'></i> Recipes</h2>
 				<hr>
 
 <?php
@@ -258,8 +257,7 @@ if ($signed_in)
 			</div>
 
 			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-child fa-3x'></i></h3>
-				<h2>Workouts</h2>
+				<h2><i class='fa fa-child'></i> Workouts</h2>
 				<hr>
 
 <?php
@@ -306,7 +304,7 @@ if ($signed_in)
 
 		<a id='<?php echo $reddit_link_source ?>'></a>
 		<div class='container row text-center'>
-			<h1><a href='https://www.reddit.com/r/<?php echo $reddit_link_source ?>'><?php echo $reddit_link_source ?></a></h1>
+			<h1><a href='https://www.reddit.com/r/<?php echo $reddit_link_source ?>'><i class='fa fa-reddit'></i> <?php echo $reddit_link_source ?></a></h1>
 			<br>
 
 <?php
@@ -357,58 +355,55 @@ else
 {
 ?>
 
-		<a id='fitspiration'></a>
+		<a id='login'></a>
 		<div class='container row text-center'>
-			<h1>FITspiration.<br><small>Find a new max. <i class='fa fa-level-up'></i></small></h1>
-		</div>
-
-		<a id='start'></a>
-		<div class='container row text-center'>
-			<h1>Get started <i class='fa fa-flag-checkered'></i></h1>
-			<p>On your mark, get set, go! Let's find a healthy lifestyle that fits you.</p>
+			<h1><i class='fa fa-flag-checkered'></i> Get started</h1>
+			<p>Whether you have an account or not, just enter your email address and password to start using FITspiration!</p>
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
 					<label class='sr-only' for='emailInput'>Email</label>
 					<div class='input-group'>
-						<div class='input-group-addon'>Email</div>
+						<div class='input-group-addon'><i class='fa fa-envelope'></i> Email</div>
 						<input type='email' class='form-control' id='emailInput' name='email' placeholder='Your email'>
 					</div>
 				</div>
 				<div class='form-group'>
 					<label class='sr-only' for='passwordInput'>Password</label>
 					<div class='input-group'>
-						<div class='input-group-addon'>Password</div>
+						<div class='input-group-addon'><i class='fa fa-lock'></i> Password</div>
 						<input type='password' class='form-control' id='passwordInput' name='password' placeholder='Your password'>
 					</div>
 				</div>
-				<button type='submit' class='btn btn-primary'>Register or sign in</button>
+				<button type='submit' class='btn btn-primary'><i class='fa fa-sign-in'></i> Register or sign in</button>
 			</form>
 			<br>
 			<hr>
 		</div>
 
-		<a id='benefits'></a>
+		<a id='perks'></a>
 		<div class='container row text-center'>
-			<h1>Benefits <i class='fa fa-star'></i></h1>
-			<p>What's waiting for you once you have your FITspiration account?</p>
+			<h1><i class='fa fa-star'></i> Perks</h1>
+			<p>What's waiting for you on the other side? We'll name just a few.</p>
 		</div>
 		<div class='container row text-center'>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-newspaper-o fa-5x'></i></h3>
-				<h3>Written resources</h3>
-				<p>Perfect for a quick read or reference, access articles, recipes, and workouts to help you live healthy every day. Find out the latest tips for staying fit, and discover what you can eat and do to keep your body in top shape.</p>
+			<div class='col-sm-6 col-md-3'>
+				<h2><i class='fa fa-newspaper-o'></i> Articles</h2>
+				<p>We gather the best reading material from around the web to make sure you never run out of new things to learn.</p>
 				<br>
 			</div>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-child fa-5x'></i></h3>
-				<h3>Workout challenges</h3>
-				<p>Challenge yourself with the latest workout of the day, and find other workouts and exercises you can do to push yourself to stay fit. We'll guide you step by step to help you meet your goals and realize your capabilities.</p>
+			<div class='col-sm-6 col-md-3'>
+				<h2><i class='fa fa-cutlery'></i> Recipes</h2>
+				<p>We give you step by step instructions for making unique and delicious meals that suit your preferences and dietary restrictions.</p>
 				<br>
 			</div>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-video-camera fa-5x'></i></h3>
-				<h3>Demonstration videos</h3>
-				<p>Watch in-depth videos to help yourself through your latest exercise or meal. If pictures are worth a thousand words, these videos are worth a million, and they're perfect for sharing with friends and family to motivate everyone.</p>
+			<div class='col-sm-6 col-md-3'>
+				<h2><i class='fa fa-child'></i> Workouts</h2>
+				<p>We let you know exactly how to do important and fun exercises for all skill levels, from simple to advanced.</p>
+				<br>
+			</div>
+			<div class='col-sm-6 col-md-3'>
+				<h2><i class='fa fa-video-camera'></i> Videos</h2>
+				<p>We show you the latest news on our Infinity products and demonstrate how to do exercises for easy quick refence.</p>
 				<br>
 			</div>
 		</div>
