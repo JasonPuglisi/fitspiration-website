@@ -17,7 +17,7 @@
 						<p><a href='mailto:contact@findanewmax.com'><i class='fa fa-envelope'></i> Email: contact@findanewmax.com</a></p>
 						<p><a href='https://twitter.com/FITspirationVEI'><i class='fa fa-twitter'></i> Twitter: @FITspirationVEI</a></p>
 						<p><a href='http://instagram.com/fitspirationvei'><i class='fa fa-instagram'></i> Instagram: FITspirationVEI</a></p>
-						<p><a href='tel:6986329859'><i class='fa fa-phone'></i> Phone: (609) 632-0950</a></p>
+						<p><a href='tel:6986323214'><i class='fa fa-phone'></i> Phone: (609) 632-3214</a></p>
 						<br>
 					</div>
 					<div class='col-md-4'>
