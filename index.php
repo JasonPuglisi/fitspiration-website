@@ -58,7 +58,7 @@ if ($signed_in)
 				<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
 				<br>
 				<div class='progress'>
-					<div class='progress-bar progress-bar-info progress-bar-striped' role='progressbar' aria-valuenow='<?php echo $account_progress ?>' aria-valuemix='0' aria-valuemax='100' style='width: <?php echo $account_progress ?>%'></div>
+					<div class='progress-bar progress-bar-info progress-bar-striped active' role='progressbar' aria-valuenow='<?php echo $account_progress ?>' aria-valuemix='0' aria-valuemax='100' style='width: <?php echo $account_progress ?>%'></div>
 				</div>
 				<h3>Your account is <?php echo $account_progress ?>% complete!</h3>
 				<hr>
