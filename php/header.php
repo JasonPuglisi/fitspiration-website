@@ -79,7 +79,7 @@ if (isset($_COOKIE['session']))
 	if (!$signed_in)
 	{	$error = 'signed_out';
 
-		setcookie('session', '', time() - 3600, '/');
+		setcookie('session', '', time() - 3600, '/', 'www.findanewmax.com');
 	}
 }
 
