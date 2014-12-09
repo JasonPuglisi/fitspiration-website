@@ -55,7 +55,7 @@ if (isset($_COOKIE['session']))
 		if ($account_session_id === $_COOKIE['session'] && $account_session_ip === $_SERVER['REMOTE_ADDR'] && $account_session_user_agent === $_SERVER['HTTP_USER_AGENT'])
 		{	$signed_in = true;
 
-			if (isset($_COOKIE['demo']) && $account_level === 'Diamond')
+			if (isset($_COOKIE['demo']) && $_COOKIE['demo'] && $account_level === 'Diamond')
 			{	$account_level = 'Gold';
 			}
 
