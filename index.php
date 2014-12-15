@@ -7,7 +7,7 @@ if ($signed_in)
 
 		<a id='welcome'></a>
 		<div class='container row text-center'>
-			<h1><i class='fa fa-dashboard'></i> Welcome<?php if ($account_name) echo ', ', $account_name ?>!</h1>
+			<h1>Welcome<?php if ($account_name) echo ', ', $account_name ?>!</h1>
 			<hr>
 		</div>
 
@@ -56,11 +56,18 @@ if ($signed_in)
 				<h2><i class='fa fa-user'></i> Your account</h2>
 				<h3 class='account-<?php echo strtolower($account_level) ?>'><?php echo $account_level ?></h3>
 				<p><a class='btn btn-default btn-sm' href='/account'>Update account</a></p>
+<?php
+	if ($account_progress !== 100)
+	{
+?>
 				<br>
 				<div class='progress'>
 					<div class='progress-bar progress-bar-info progress-bar-striped active' role='progressbar' aria-valuenow='<?php echo $account_progress ?>' aria-valuemix='0' aria-valuemax='100' style='width: <?php echo $account_progress ?>%'></div>
 				</div>
 				<h3>Your account is <?php echo $account_progress ?>% complete!</h3>
+<?php
+	}
+?>
 				<hr>
 				<h4>What's next?</h4>
 
@@ -101,16 +108,21 @@ if ($signed_in)
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	$workouts = $results;
-
-	if ($videos)
-	{
 ?>
 
-			<a id='recent'></a>
+			<a id='latest'></a>
 			<div class='col-md-6'>
-				<h2><i class='fa fa-refresh'></i> Most recent</h2>
+				<h2><i class='fa fa-refresh'></i> Latest releases</h2>
 				<div class='row'>
-					<div class='col-xs-8 col-xs-offset-2'>
+					<div class='col-xs-8 col-xs-offset-2 text-left'>
+
+<?php
+	if ($videos || $articles || $recipes || $workouts)
+	{	if ($videos)
+		{
+?>
+
+						<h4><small>Video</small> <a href='/videos'><?php echo $videos[0]['title'] ?></a></h4>
 						<div class='embed-responsive embed-responsive-16by9'>
 
 <?php
@@ -133,25 +145,15 @@ if ($signed_in)
 ?>
 
 						</div>
-					</div>
-				</div>
-				<h3><a href='/videos'><?php echo $videos[0]['title'] ?></a></h3>
+						<hr>
 
 <?php
-	}
-
-	if ($articles || $recipes || $workouts)
-	{
-?>
-
-				<hr>
-
-<?php
+		}
 		if ($articles)
 		{
 ?>
 
-				<h4><a href='article?id=<?php echo $articles[0]['id'] ?>'>• <?php echo $articles[0]['title'] ?></a></h4>
+						<h4><small>Article</small> <a href='article?id=<?php echo $articles[0]['id'] ?>'><?php echo $articles[0]['title'] ?></a></h4>
 
 <?php
 		}
@@ -159,7 +161,7 @@ if ($signed_in)
 		{
 ?>
 
-				<h4><a href='recipe?id=<?php echo $recipes[0]['id'] ?>'>• <?php echo $recipes[0]['title'] ?></a></h4>
+						<h4><small>Recipe</small> <a href='recipe?id=<?php echo $recipes[0]['id'] ?>'><?php echo $recipes[0]['title'] ?></a></h4>
 
 <?php
 		}
@@ -167,20 +169,22 @@ if ($signed_in)
 		{
 ?>
 
-				<h4><a href='workout?id=<?php echo $workouts[0]['id'] ?>'>• <?php echo $workouts[0]['title'] ?></a></h4>
+						<h4><small>Workout</small> <a href='workout?id=<?php echo $workouts[0]['id'] ?>'><?php echo $workouts[0]['title'] ?></a></h4>
 
 <?php
 		}
 	}
 ?>
 
+					</div>
+				</div>
 			</div>
 		</div>
 		<hr>
 
 		<a id='resources'></a>
 		<div class='container row text-center'>
-			<h1><i class='fa fa-bookmark'></i> Need something to read?</h2>
+			<h1>Need something to read?</h2>
 			<br>
 		</div>
 		<div class='container row text-center'>
@@ -357,7 +361,7 @@ else
 
 		<a id='login'></a>
 		<div class='container row text-center'>
-			<h1><i class='fa fa-flag-checkered'></i> Get started</h1>
+			<h1>Get started</h1>
 			<p>Whether you have an account or not, just enter your email address and password to start using FITspiration!</p>
 			<form class='form-inline' method='post' role='form'>
 				<div class='form-group'>
@@ -382,7 +386,7 @@ else
 
 		<a id='perks'></a>
 		<div class='container row text-center'>
-			<h1><i class='fa fa-star'></i> Perks</h1>
+			<h1>Perks</h1>
 			<p>What's waiting for you on the other side? We'll name just a few.</p>
 		</div>
 		<div class='container row text-center'>

@@ -4,7 +4,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 		<a id='staff'></a>
 		<div class='container row text-center'>
-			<h1><i class='fa fa-users'></i> Meet our staff</h1>
+			<h1>Meet our staff</h1>
 			<p>We work hard to give you the personalized experience you need to live a healthy and active life.</p>
 			<br>
 		</div>
@@ -56,7 +56,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 
 		<a id='human-resources'></a>
 		<div class='container row'>
-			<h2><i class='fa fa-smile-o'></i> Human Resources</h2>
+			<h2><i class='fa fa-legal'></i> Human Resources</h2>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/joanWalker.png' alt='Joan Walker'>
 				<h4>Joan Walker<br><small>Human Resources Manager</small></h4>
