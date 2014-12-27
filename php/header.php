@@ -127,7 +127,7 @@ function get_days_ago_string($date_string)
 
 	<link rel='shortcut icon' sizes='16x16 24x24 32x32 48x48 64x64' href='https://www.findanewmax.com/favicon.ico'>
 	<link rel='apple-touch-icon' sizes='57x57' href='https://www.findanewmax.com/img/ico/57.png'>
-	<link rel='apple-touch-icon' sizes='57x57' href='https://www.findanewmax.com/img/ico/57.png'>
+	<link rel='apple-touch-icon-precomposed' sizes='57x57' href='https://www.findanewmax.com/img/ico/57.png'>
 	<link rel='apple-touch-icon' sizes='72x72' href='https://www.findanewmax.com/img/ico/72.png'>
 	<link rel='apple-touch-icon' sizes='114x114' href='https://www.findanewmax.com/img/ico/114.png'>
 	<link rel='apple-touch-icon' sizes='120x120' href='https://www.findanewmax.com/img/ico/120.png'>
