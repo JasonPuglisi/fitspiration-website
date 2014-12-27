@@ -102,17 +102,17 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 				<h4>Michelle Carter<br><small>Marketing Manager</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
+				<img class='img-responsive img-circle' src='/img/staff/davidLee.png' alt='David Lee'>
+				<h4>David Lee<br><small>Official Editor of Things</small></h4>
+			</div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/pamelaNelson.png' alt='Pamela Nelson'>
-				<h4>Pamela Nelson<br><small>Marketing Analyst</small></h4>
+				<h4>Pamela Nelson<br><small>Director of Sales</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/judyPrice.png' alt='Judy Price'>
 				<h4>Judy Price<br><small>Marketing Analyst</small></h4>
-			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/davidLee.png' alt='David Lee'>
-				<h4>David Lee<br><small>Marketing Analyst</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block visible-sm-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
