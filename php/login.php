@@ -24,9 +24,12 @@ if (isset($_POST['email']) && isset($_POST['password']))
 						':email'=>$_POST['email']
 					));
 
-					setcookie('session', $update_session_id, time() + 604800, '/', 'www.findanewmax.com');
+					setcookie('session', $update_session_id, 0, '/', 'www.findanewmax.com');
 
 					reload();
+				}
+				else
+				{	$error = 'password_incorrect';
 				}
 			}
 			else
@@ -46,7 +49,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
 					':session_user_agent'=>$insert_session_user_agent
 				));
 
-				setcookie('session', $update_session_id, time() + 604800, '/', 'www.findanewmax.com');
+				setcookie('session', $insert_session_id, 0, '/', 'www.findanewmax.com');
 
 				require $_SERVER['DOCUMENT_ROOT'] . $SENDGRID_LOCATION;
 
