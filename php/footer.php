@@ -8,9 +8,8 @@
 			<div class='footer'>
 				<div class='container row text-center'>
 					<div class='col-md-4'>
-						<p><i class='fa fa-copyright'></i> FITspiration 2014</p>
-						<p><i class='fa fa-institution'></i> For educational purposes only</p>
 						<p><i class='fa fa-map-marker'></i> Made in Robbinsville, New Jersey</p>
+						<p>This is an official <a href='https://veinternational.org/'>Virtual Enterprises International</a> firm website and is for educational purposes only. (2014-2015 - FITspiration)</p>
 						<br>
 					</div>
 					<div class='col-md-4'>
