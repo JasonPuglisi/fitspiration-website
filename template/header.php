@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/php/config.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/config.php';
 
 function reload()
 {	$header_location = 'Location: ' . preg_replace('/\.php|index\.php/', '', $_SERVER['PHP_SELF']);
@@ -30,8 +30,8 @@ if (isset($_SESSION['error']))
 
 $db = new PDO("$DATABASE_TYPE:dbname=$DATABASE_NAME;host=$DATABASE_HOST", $USER_NAME, $USER_PASSWORD);
 
-require $_SERVER['DOCUMENT_ROOT'] . '/php/login.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/php/logout.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/login.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/logout.php';
 
 $signed_in = false;
 

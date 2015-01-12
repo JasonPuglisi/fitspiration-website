@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 
 if (isset($_GET['tag']) && !empty($_GET['tag']) && strlen($_GET['tag']) <= 50)
 {	$stmt = $db->prepare('SELECT id, title, date, description, category FROM articles WHERE (level=\'' . implode('\' or level=\'', $account_levels_inherited) . '\') AND category=:tag ORDER BY id DESC LIMIT 50');
@@ -58,6 +58,6 @@ if (!$error)
 <?php
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/footer.php';
 
 // EOF: articles.php

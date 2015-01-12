@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 
 if (isset($_GET['id']) && ctype_digit($_GET['id']))
 {	$stmt = $db->prepare('SELECT level, title, date, source, body, image, description, category FROM workouts WHERE id=:id LIMIT 1');
@@ -87,6 +87,6 @@ if (!$error)
 <?php
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/footer.php';
 
 // EOF: workout.php

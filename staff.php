@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 ?>
 
 		<a id='staff'></a>
@@ -122,6 +122,6 @@ require $_SERVER['DOCUMENT_ROOT'] . '/php/header.php';
 		</div>
 
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/php/footer.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/template/footer.php';
 
 // EOF: staff.php
