@@ -8,7 +8,7 @@
 			<div class='footer'>
 				<div class='container row text-center'>
 					<div class='col-md-4'>
-						<p><i class='fa fa-map-marker'></i> Made in Robbinsville, New Jersey</p>
+						<p><i class='fa fa-map-marker'></i> Made in <a href='https://www.google.com/maps/place/Robbinsville+High+School'>Robbinsville, New Jersey</a></p>
 						<p><i class='fa fa-institution'></i><br><small>This is an official <a href='https://veinternational.org/'>Virtual Enterprises International</a> firm website and is for educational purposes only. (2014-2015 - FITspiration)</small></p>
 						<br>
 					</div>
