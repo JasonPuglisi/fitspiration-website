@@ -363,23 +363,11 @@ else
 		<div class='container row text-center'>
 			<h1>Get started</h1>
 			<p>Whether you have an account or not, just enter your email address and password to start using FITspiration!</p>
-			<form class='form-inline' method='post' role='form'>
-				<div class='form-group'>
-					<label class='sr-only' for='emailInput'>Email</label>
-					<div class='input-group'>
-						<div class='input-group-addon'><i class='fa fa-envelope'></i> Email</div>
-						<input type='email' class='form-control' id='emailInput' name='email' placeholder='Your email'>
-					</div>
-				</div>
-				<div class='form-group'>
-					<label class='sr-only' for='passwordInput'>Password</label>
-					<div class='input-group'>
-						<div class='input-group-addon'><i class='fa fa-lock'></i> Password</div>
-						<input type='password' class='form-control' id='passwordInput' name='password' placeholder='Your password'>
-					</div>
-				</div>
-				<button type='submit' class='btn btn-primary'><i class='fa fa-sign-in'></i> Register or sign in</button>
-			</form>
+			
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/login-form-inline.php';
+?>
+
 			<br>
 			<hr>
 		</div>
@@ -420,36 +408,10 @@ else
 			<h1>Packages <i class='fa fa-bar-chart'></i></h1>
 			<p>Ready to find your new max? Once you register or sign in above, you'll be ready to upgrade your account to one of the options below.</p>
 		</div>
-		<div class='container row text-center'>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-trophy fa-2x account-bronze'></i></h3>
-				<h3 class='account-bronze'>Bronze<small> $<?php echo $LEVEL_PRICES['Bronze'] ?>/yr</small></h3>
-				<p>Fitness tracking</p>
-				<p>Quick meal recipes</p>
-				<p>Exercise information</p>
-				<p>Health articles</p>
-				<p>Infinity Band with pedometer and calorie tracker</p>
-			</div>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-trophy fa-2x account-silver'></i></h3>
-				<h3 class='account-silver'>Silver<small> $<?php echo $LEVEL_PRICES['Silver'] ?>/yr</small></h3>
-				<p>Breakfast, lunch, and dinner recipes</p>
-				<p>Dietary recommendations</p>
-				<p>Exercise plans and challenges</p>
-				<p>Discussion forum</p>
-				<p>Infinity Band with pedometer and calorie tracker</p>
-			</div>
-			<div class='col-sm-6 col-md-4'>
-				<h3><i class='fa fa-trophy fa-2x account-gold'></i></h3>
-				<h3 class='account-gold'>Gold<small> $<?php echo $LEVEL_PRICES['Gold'] ?>/yr</small></h3>
-				<p>Snack and dessert recipes</p>
-				<p>Workout and yoga videos</p>
-				<p>Custom dietary recommendations</p>
-				<p>Custom exercise plans and challenges</p>
-				<p>Custom grocery lists and restaurant recommendations</p>
-				<p>Infinity Watch with fitness tracking capabilities</p>
-			</div>
-		</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/packages-row.php';
+?>
 
 	</div>
 </div>
