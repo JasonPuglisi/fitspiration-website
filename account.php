@@ -193,10 +193,10 @@ if ($signed_in)
 			<hr>
 		</div>
 
-		<a id='levels'></a>
+		<a id='packages'></a>
 		<div class='container row text-center'>
-			<h1>Levels <i class='fa fa-bar-chart'></i></h1>
-			<p>Get ready for your new lifestyle with FITspiration! Update your account level and start your journey to find a new max.</p>
+			<h1>Packages <i class='fa fa-bar-chart'></i></h1>
+			<p>Get ready for your new lifestyle with FITspiration! Update your account package and start your journey to find a new max.</p>
 		</div>
 
 <?php
