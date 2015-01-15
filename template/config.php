@@ -7,7 +7,7 @@ $USER_NAME = 'USERNAME';
 $USER_PASSWORD = 'PASSWORD';
 
 // Package location details
-$SENDGRID_LOCATION = '/sendgrid/lib/SendGrid.php';
+$SENDGRID_LOCATION = '/sendgrid/sendgrid-php.php';
 $PARSEDOWN_LOCATION = '/parsedown/Parsedown.php';
 
 // Email details
