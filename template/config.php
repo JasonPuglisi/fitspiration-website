@@ -40,5 +40,6 @@ $ERROR_MESSAGE['recipe_not_allowed'] = 'This recipe is not available for your le
 $ERROR_MESSAGE['no_videos'] = 'There are no videos available yet. Please check back later or consider upgrading your account.';
 $ERROR_MESSAGE['video_invalid'] = 'This video doesn\'t exist. Make sure your link is correct and try again. If you\'d like, you can <a href=\'/\'>return to the home page</a>.</i>';
 $ERROR_MESSAGE['video_not_allowed'] = 'This video is not available for your level. If you\'d like, you can <a href=\'account\'>upgrade your account</a> or <a href=\'/\'>return to the home page</a>.';
+$ERROR_MESSAGE['no_wod'] = 'Sorry, we can\'t seem to find today\'s WOD. Please check back later!';
 
 // EOF: config.php

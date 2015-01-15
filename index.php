@@ -182,6 +182,21 @@ if ($signed_in)
 		</div>
 		<hr>
 
+		<a id='wod'></a>
+		<div class='container row text-center'>
+			<h1>Workout of the day</h1>
+			<p>Looking for something to achieve today? We've got you covered. Check back daily for new workouts and challenges!</p>
+		</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/wod-row.php';
+?>
+
+		<div class='container row text-center'>
+			<br>
+			<hr>
+		</div>
+
 		<a id='resources'></a>
 		<div class='container row text-center'>
 			<h1>Need something to read?</h2>
@@ -372,40 +387,38 @@ else
 			<hr>
 		</div>
 
+		<a id='wod'></a>
+		<div class='container row text-center'>
+			<h1>Workout of the day</h1>
+			<p>Looking for something to achieve today? We've got you covered. Check back daily for new workouts and challenges!</p>
+		</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/wod-row.php';
+?>
+
+		<div class='container row text-center'>
+			<br>
+			<hr>
+		</div>
+
 		<a id='perks'></a>
 		<div class='container row text-center'>
 			<h1>Perks</h1>
-			<p>What's waiting for you on the other side? We'll name just a few.</p>
+			<p>What benefits are waiting for you on the other side? We'll name just a few.</p>
 		</div>
-		<div class='container row text-center'>
-			<div class='col-sm-6 col-md-3'>
-				<h2><i class='fa fa-newspaper-o'></i> Articles</h2>
-				<p>We gather the best reading material from around the web to make sure you never run out of new things to learn.</p>
-				<br>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h2><i class='fa fa-cutlery'></i> Recipes</h2>
-				<p>We give you step by step instructions for making unique and delicious meals that suit your preferences and dietary restrictions.</p>
-				<br>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h2><i class='fa fa-child'></i> Workouts</h2>
-				<p>We let you know exactly how to do important and fun exercises for all skill levels, from simple to advanced.</p>
-				<br>
-			</div>
-			<div class='col-sm-6 col-md-3'>
-				<h2><i class='fa fa-video-camera'></i> Videos</h2>
-				<p>We show you the latest news on our Infinity products and demonstrate how to do exercises for easy quick refence.</p>
-				<br>
-			</div>
-		</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/perks-row.php';
+?>
+
 		<div class='container row text-center'>
 			<hr>
 		</div>
 
 		<a id='packages'></a>
 		<div class='container row text-center'>
-			<h1>Packages <i class='fa fa-bar-chart'></i></h1>
+			<h1>Packages</h1>
 			<p>Ready to find your new max? Once you register or sign in above, you'll be ready to upgrade your account to one of the options below.</p>
 		</div>
 
