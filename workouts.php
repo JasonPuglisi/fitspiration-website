@@ -31,7 +31,7 @@ if (!$error)
 
 		<a id='workouts'></a>
 		<div class='container row text-center'>
-			<h1>Workouts <i class='fa fa-newspaper-o'></i></h1>
+			<h1><i class='fa fa-child'></i> Workouts</h1>
 			<p>Looking for something good to read? You're in the right place. Check out all of the workouts we've ever published, and come back often to stay up to date with our newest material!</p>
 			<br>
 		</div>

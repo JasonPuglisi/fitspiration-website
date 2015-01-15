@@ -31,7 +31,7 @@ if (!$error)
 
 		<a id='articles'></a>
 		<div class='container row text-center'>
-			<h1>Videos <i class='fa fa-video-camera'></i></h1>
+			<h1><i class='fa fa-video-camera'></i> Videos</h1>
 			<p>Wanna know how to do an exercise or cook a meal? Check out our videos for some great ideas!</p>
 			<br>
 		</div>
