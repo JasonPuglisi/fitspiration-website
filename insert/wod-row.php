@@ -9,7 +9,6 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class='container row text-center'>
-	<h1><i class='fa fa-calendar fa-lg'></i></h1>
 
 <?php
 if ($results)
@@ -21,7 +20,7 @@ if ($results)
 	$wod_body_parsed = (new Parsedown())->text($wod_body);
 ?>
 
-	<h2><?php echo $wod_title ?></h2>
+	<h2><i class='fa fa-calendar'></i> <?php echo $wod_title ?></h2>
 
 <?php
 	echo $wod_body_parsed;

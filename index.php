@@ -413,17 +413,34 @@ else
 ?>
 
 		<div class='container row text-center'>
+			<br>
 			<hr>
 		</div>
 
 		<a id='packages'></a>
 		<div class='container row text-center'>
 			<h1>Packages</h1>
-			<p>Ready to find your new max? Once you register or sign in above, you'll be ready to upgrade your account to one of the options below.</p>
+			<p>Ready to find your new max? Register or sign in to select one of the following packages.</p>
 		</div>
 
 <?php
 	include $_SERVER['DOCUMENT_ROOT'] . '/insert/packages-row.php';
+?>
+
+		<div class='container row text-center'>
+			<br>
+			<hr>
+		</div>
+
+		<a id='about'></a>
+		<div class='container row text-center'>
+			<h1>About us</h1>
+			<p>What makes the FITspiration experience a unique one? Take a moment to find out.</p>
+			<br>
+		</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'] . '/insert/company-description-row.php';
 ?>
 
 	</div>
