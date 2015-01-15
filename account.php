@@ -187,7 +187,7 @@ if ($signed_in)
 						<input type='text' class='form-control' id='addressInput' name='address' placeholder='<?php echo $account_address ?>'>
 					</div>
 				</div>
-				<button type='submit' class='btn btn-primary'>Update profile</button>
+				<button type='submit' class='btn btn-success'>Update profile</button>
 			</form>
 			<br>
 			<hr>

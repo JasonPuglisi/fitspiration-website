@@ -13,5 +13,5 @@
 			<input type='password' class='form-control' id='passwordInput' name='password' placeholder='Your password'>
 		</div>
 	</div>
-	<button type='submit' class='btn btn-primary'><i class='fa fa-sign-in'></i> Register or sign in</button>
+	<button type='submit' class='btn btn-success'><i class='fa fa-sign-in'></i> Register or sign in</button>
 </form>
