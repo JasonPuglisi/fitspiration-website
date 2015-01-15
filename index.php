@@ -377,7 +377,7 @@ else
 		<a id='login'></a>
 		<div class='container row text-center'>
 			<h1>Get started</h1>
-			<p>Whether you have an account or not, just enter your email address and password to start using FITspiration!</p>
+			<p>Whether you have an account already or not, simply enter your email address and password to start using FITspiration!</p>
 			
 <?php
 	include $_SERVER['DOCUMENT_ROOT'] . '/insert/login-form-inline.php';
