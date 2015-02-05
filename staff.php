@@ -22,8 +22,8 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/dianeGray.png' alt='Diane Gray'>
-				<h4>Diane Gray<br><small>Chief Operating Officer</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/saraDiaz.png' alt='Sara Diaz'>
+				<h4>Sara Diaz<br><small>Chief Marketing Officer</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/carolynEvans.png' alt='Carolyn Evans'>
@@ -31,8 +31,8 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 			</div>
 			<div class='clearfix visible-xs-block visible-sm-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/saraDiaz.png' alt='Sara Diaz'>
-				<h4>Sara Diaz<br><small>Chief Marketing Officer</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/dianeGray.png' alt='Diane Gray'>
+				<h4>Diane Gray<br><small>Chief Operating Officer</small></h4>
 			</div>
 		</div>
 
@@ -44,13 +44,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 				<h4>Eugene Campbell<br><small>Information Technology Manager</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/joshuaBryant.png' alt='Joshua Bryant'>
-				<h4>Joshua Bryant<br><small>Information Technology Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/stephanieJohnson.png' alt='Stephanie Johnson'>
+				<h4>Stephanie Johnson<br><small>Information Technology Analyst</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/stephanieJohnson.png' alt='Stephanie Johnson'>
-				<h4>Stephanie Johnson<br><small>Information Technology Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/davidLee.png' alt='David Lee'>
+				<h4>David Lee<br><small>Information Technology Analyst</small></h4>
 			</div>
 		</div>
 
@@ -62,13 +62,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 				<h4>Joan Walker<br><small>Human Resources Manager</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/joseScott.png' alt='Jose Scott'>
-				<h4>Jose Scott<br><small>Human Resources Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/cherylRoberts.png' alt='Cheryl Roberts'>
+				<h4>Cheryl Roberts<br><small>Human Resources Analyst</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/cherylRoberts.png' alt='Cheryl Roberts'>
-				<h4>Cheryl Roberts<br><small>Human Resources Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/joseScott.png' alt='Jose Scott'>
+				<h4>Jose Scott<br><small>Human Resources Analyst</small></h4>
 			</div>
 		</div>
 
@@ -80,13 +80,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 				<h4>Christopher Rogers<br><small>Accounting Manager</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/kathrynLopez.png' alt='Kathryn Lopez'>
-				<h4>Kathryn Lopez<br><small>Accounting Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/annaGarcia.png' alt='Anna Garcia'>
+				<h4>Anna Garcia<br><small>Accounting Analyst</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/annaGarcia.png' alt='Anna Garcia'>
-				<h4>Anna Garcia<br><small>Accounting Analyst</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/kathrynLopez.png' alt='Kathryn Lopez'>
+				<h4>Kathryn Lopez<br><small>Accounting Analyst</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/helenRobinson.png' alt='Helen Robinson'>
@@ -102,22 +102,17 @@ require $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 				<h4>Michelle Carter<br><small>Marketing Manager</small></h4>
 			</div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/davidLee.png' alt='David Lee'>
-				<h4>David Lee<br><small>Official Editor of Things</small></h4>
-			</div>
-			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/pamelaNelson.png' alt='Pamela Nelson'>
-				<h4>Pamela Nelson<br><small>Director of Sales</small></h4>
+				<img class='img-responsive img-circle' src='/img/staff/russellJohnson.png' alt='Russell Johnson'>
+				<h4>Russell Johnson<br><small>Marketing Analyst</small></h4>
 			</div>
 			<div class='clearfix visible-xs-block'></div>
 			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
+				<img class='img-responsive img-circle' src='/img/staff/pamelaNelson.png' alt='Pamela Nelson'>
+				<h4>Pamela Nelson<br><small>Marketing Analyst</small></h4>
+			</div>
+			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
 				<img class='img-responsive img-circle' src='/img/staff/judyPrice.png' alt='Judy Price'>
 				<h4>Judy Price<br><small>Marketing Analyst</small></h4>
-			</div>
-			<div class='clearfix visible-xs-block visible-sm-block'></div>
-			<div class='col-xs-6 col-sm-3 col-md-2 text-center'>
-				<img class='img-responsive img-circle' src='/img/staff/russellJohnson.png' alt='Russell Johnson'>
-				<h4>Russell Johnson<br><small>Marketing Analyst</small></h4>
 			</div>
 		</div>
 
