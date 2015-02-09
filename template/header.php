@@ -121,8 +121,8 @@ function get_days_ago_string($date_string)
 
 	<title>FITspiration</title>
 
-	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
-	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 	<link rel='stylesheet' href='/css/style.css'>
 
 	<link rel='shortcut icon' sizes='16x16 24x24 32x32 48x48 64x64' href='https://www.findanewmax.com/favicon.ico'>
