@@ -415,7 +415,7 @@ $email
     ->addTo('harry@somewhere.com')
     ->addTo('Bob@somewhere.com')
        ...
-    ->setHtml('Hey %name%, we've seen that you've been gone for a while')
+    ->setHtml('Hey %name%, we\'ve seen that you\'ve been gone for a while')
     ->addSubstitution('%name%', array('John', 'Harry', 'Bob'))
 ;
 ```
@@ -544,6 +544,26 @@ $email
     ->addTo('foo@bar.com')
     ...
     setFilters(array("gravatar" => array("settings" => array("enable" => 1))))
+;
+```
+
+### Templates ###
+
+You can easily use SendGrid's [template engine](https://sendgrid.com/docs/User_Guide/Apps/template_engine.html) by applying filters.
+
+```php
+$email = new SendGrid\Email();
+$email
+    ->addTo('someone@example.com')
+    ->setFrom('support@example.com')
+    ->setFromName('Support')
+    ->setSubject('Subject goes here')
+    // set html or text to an empty space (see http://git.io/hCNy)
+    ->setHtml(' ') // <-- triggers the html version of the template
+    // OR
+    ->setText(' ') // <-- triggers the plaintext version of the template
+    ->addFilter('templates', 'enabled', 1)
+    ->addFilter('templates', 'template_id', $templateId)
 ;
 ```
 
