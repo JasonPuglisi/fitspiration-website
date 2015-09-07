@@ -1,9 +1,13 @@
 <?php
-$current_date = date('Y-m-d');
+$stmt = $db->prepare('SELECT count(*) FROM wods');
+$stmt->execute();
+$wods = $stmt->fetch(PDO::FETCH_NUM)[0];
+$day = time() / (60 * 60 * 24);
+$id = $day % $wods;
 
-$stmt = $db->prepare('SELECT title, date, body FROM wods WHERE date=:date LIMIT 1');
+$stmt = $db->prepare('SELECT title, date, body FROM wods WHERE id=:id LIMIT 1');
 $stmt->execute(array(
-	':date'=>$current_date
+	':id'=>$id
 ));
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
